@@ -1,4 +1,4 @@
-package org.team.rentwheels;
+package org.team.rentwheels.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

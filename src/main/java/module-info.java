@@ -5,4 +5,6 @@ module org.team.rentwheels {
 
     opens org.team.rentwheels to javafx.fxml;
     exports org.team.rentwheels;
+    exports org.team.rentwheels.controllers;
+    opens org.team.rentwheels.controllers to javafx.fxml;
 }
