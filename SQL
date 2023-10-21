@@ -1,0 +1,72 @@
+-- Create the Brands table
+CREATE TABLE Brands (
+    brand_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    country VARCHAR(50),
+    foundation_year INT
+);
+
+-- Create the Cars table
+CREATE TABLE Cars (
+    car_id INT PRIMARY KEY,
+    brand_id INT NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    availability BOOLEAN NOT NULL,
+    image_url VARCHAR(255),
+    maintenance_status VARCHAR(50),
+    last_maintenance_date DATE,
+    FOREIGN KEY (brand_id) REFERENCES Brands(brand_id)
+);
+
+-- Create the Customers table
+CREATE TABLE Customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    address VARCHAR(255)
+);
+
+-- Create the Reservations table
+CREATE TABLE Reservations (
+    reservation_id INT PRIMARY KEY,
+    car_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    reservation_date DATE NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    total_cost DECIMAL(10, 2) NOT NULL,
+--  status VARCHAR(50) NOT NULL,
+    FOREIGN KEY (car_id) REFERENCES Cars(car_id),
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+);
+
+
+
+-- Create the Users table
+-- CREATE TABLE Users (
+   --  admin_id INT PRIMARY KEY,
+   --  username VARCHAR(50) NOT NULL,
+   --  password VARCHAR(100) NOT NULL,
+   --  first_name VARCHAR(50) NOT NULL,
+   --  last_name VARCHAR(50) NOT NULL,
+   --  email VARCHAR(100) NOT NULL,
+   --  phone VARCHAR(20),
+    -- role VARCHAR(50)
+-- );
+
+-- Create the Blacklist table
+-- put the Customers that damaged the car or not return the
+-- car in the daily time
+CREATE TABLE Blacklist (
+    entry_id INT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    car_id INT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    reason VARCHAR(255),
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+    FOREIGN KEY (car_id) REFERENCES Cars(car_id)
+);

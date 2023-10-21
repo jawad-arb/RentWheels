@@ -10,6 +10,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -26,24 +35,31 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jawad/dev/git/restaurant_admin_panel&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jawad/dev/RentWheels/src/main/resources/org/team/rentwheels/css&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.HelloApplication" />
+    <configuration name="RentWheels" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.RentWheels" />
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
@@ -57,7 +73,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.RentWheels" />
       </list>
     </recent_temporary>
   </component>
@@ -71,6 +87,36 @@
       <updated>1697724059701</updated>
       <workItem from="1697724061314" duration="912000" />
       <workItem from="1697725075266" duration="609000" />
+      <workItem from="1697725747310" duration="176000" />
+      <workItem from="1697726031531" duration="85000" />
+      <workItem from="1697726187831" duration="1761000" />
+      <workItem from="1697729268745" duration="992000" />
+      <workItem from="1697730874126" duration="26000" />
+      <workItem from="1697731707391" duration="272000" />
+      <workItem from="1697732304303" duration="204000" />
+      <workItem from="1697750784954" duration="13000" />
+      <workItem from="1697750806767" duration="5000" />
+      <workItem from="1697751292022" duration="17000" />
+      <workItem from="1697790193970" duration="9000" />
+      <workItem from="1697790219305" duration="26000" />
+      <workItem from="1697830115228" duration="2234000" />
+      <workItem from="1697837973255" duration="2335000" />
+      <workItem from="1697840330728" duration="633000" />
+      <workItem from="1697840982397" duration="26000" />
+      <workItem from="1697841258987" duration="90000" />
+      <workItem from="1697841601475" duration="292000" />
+      <workItem from="1697841911859" duration="811000" />
+      <workItem from="1697843908088" duration="395000" />
+      <workItem from="1697845314500" duration="653000" />
+      <workItem from="1697845990436" duration="10000" />
+      <workItem from="1697846136407" duration="858000" />
+      <workItem from="1697847014781" duration="191000" />
+      <workItem from="1697847263687" duration="494000" />
+      <workItem from="1697847901697" duration="103000" />
+      <workItem from="1697848071129" duration="920000" />
+      <workItem from="1697849003318" duration="2062000" />
+      <workItem from="1697880975008" duration="3980000" />
+      <workItem from="1697885082485" duration="5962000" />
     </task>
     <servers />
   </component>
