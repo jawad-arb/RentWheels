@@ -16,14 +16,13 @@ public class StageManager {
     private static int WIDTH = 700, HEIGHT = 450;
 
 
-    public static void init(Stage stage, boolean resizable) throws IOException,NullPointerException {
+    public static void init(Stage stage, boolean resizable) throws IOException {
         mainStage = stage;
         Parent loader = FXMLLoader.load(RentWheels.class.getResource("fxml/Login/login.fxml"));
         scene = new Scene(loader,WIDTH,HEIGHT);
         mainStage.setResizable(resizable);
         mainStage.setScene(scene);
         mainStage.setResizable(false);
-        mainStage.set
         mainStage.show();
     }
 

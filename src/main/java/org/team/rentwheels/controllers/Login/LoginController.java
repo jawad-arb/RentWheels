@@ -8,16 +8,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.team.rentwheels.DatabaseConnection;
 import org.team.rentwheels.models.User;
+import org.team.rentwheels.services.UserService;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class LoginController {
 
+    // dependency injection
+    private final UserService userService;
+    private static User currentUser;
     @FXML
     public Button cancelBtn;
     @FXML
@@ -27,38 +27,27 @@ public class LoginController {
     @FXML
     public PasswordField passwordPasswordField;
 
+    public LoginController(){
+        this.userService=new UserService();
+    }
 
-    public void loginButtonOnAction(ActionEvent e) throws SQLException {
-        if (!userNameTextField.getText().isBlank() && !passwordPasswordField.getText().isBlank()){
-            validateLogin();
-        }else {
-            loginMessageLabel.setText("Please enter a username and password");
-        }
+    public LoginController(UserService userService) {
+        this.userService = userService;
     }
 
 
-
-    /**
-     * @AllMethods
-     * */
-
-    private void validateLogin() throws SQLException {
-        //connect to database
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDB = connectNow.connection();
-        String VERIFIE_LOGIN="SELECT COUNT(1) FROM Users WHERE username='"+userNameTextField.getText()+"' AND password ='"+passwordPasswordField.getText()+"'";
-        // execute the statement
-        Statement statement=connectDB.createStatement();
-        ResultSet queryResult=statement.executeQuery(VERIFIE_LOGIN);
-
-        //verifie the results
-        while(queryResult.next()){
-            if (queryResult.getInt(1)==1){
-                User user=new User();
+    public void loginButtonOnAction(ActionEvent e) throws SQLException {
+        if (!userNameTextField.getText().isBlank() && !passwordPasswordField.getText().isBlank()){
+            User user = new User();
+            user = userService.getUserIfExist(userNameTextField.getText(),passwordPasswordField.getText());
+            if (user != null){
+                currentUser = user;
                 loginMessageLabel.setText("Welcome to the application !!");
             }else {
-                loginMessageLabel.setText("Invalid Login , Please Try Again");
+                loginMessageLabel.setText("Invalid Login , Please Try Again !!");
             }
+        }else {
+            loginMessageLabel.setText("Please enter a username and password");
         }
     }
 
@@ -66,6 +55,8 @@ public class LoginController {
         Stage stage =(Stage) cancelBtn.getScene().getWindow();
         stage.close();
     }
+
+
 
 
 }

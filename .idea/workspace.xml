@@ -48,6 +48,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.team.rentwheels.repositories.implementations" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/css" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img" />
@@ -57,7 +60,20 @@
       <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.RentWheels">
+    <configuration name="LoginController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.controllers.Login.LoginController" />
+      <module name="RentWheels" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.team.rentwheels.controllers.Login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RentWheels" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.RentWheels" />
       <module name="RentWheels" />
@@ -74,6 +90,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.RentWheels" />
+        <item itemvalue="Application.LoginController" />
       </list>
     </recent_temporary>
   </component>
@@ -116,7 +133,13 @@
       <workItem from="1697848071129" duration="920000" />
       <workItem from="1697849003318" duration="2062000" />
       <workItem from="1697880975008" duration="3980000" />
-      <workItem from="1697885082485" duration="5962000" />
+      <workItem from="1697885082485" duration="6239000" />
+      <workItem from="1697913558245" duration="372000" />
+      <workItem from="1697913947423" duration="489000" />
+      <workItem from="1697918915075" duration="264000" />
+      <workItem from="1697920036117" duration="45000" />
+      <workItem from="1697968103767" duration="817000" />
+      <workItem from="1697969120443" duration="4273000" />
     </task>
     <servers />
   </component>
