@@ -11,6 +11,7 @@ module org.team.rentwheels {
 
     exports org.team.rentwheels;
 
-    exports org.team.rentwheels.controllers.Login;
+    exports org.team.rentwheels.controllers.login;
+    exports org.team.rentwheels.controllers.mainActivity;
 
 }

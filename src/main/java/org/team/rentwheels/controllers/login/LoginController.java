@@ -1,4 +1,4 @@
-package org.team.rentwheels.controllers.Login;
+package org.team.rentwheels.controllers.login;
 
 
 import javafx.event.ActionEvent;
@@ -10,7 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.team.rentwheels.models.User;
 import org.team.rentwheels.services.UserService;
+import org.team.rentwheels.utils.StageManager;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -35,14 +37,19 @@ public class LoginController {
         this.userService = userService;
     }
 
+    public static User getCurrentUser(){
+        return currentUser;
+    }
 
-    public void loginButtonOnAction(ActionEvent e) throws SQLException {
+
+    public void loginButtonOnAction(ActionEvent e) throws SQLException, IOException {
         if (!userNameTextField.getText().isBlank() && !passwordPasswordField.getText().isBlank()){
             User user = new User();
             user = userService.getUserIfExist(userNameTextField.getText(),passwordPasswordField.getText());
             if (user != null){
                 currentUser = user;
                 loginMessageLabel.setText("Welcome to the application !!");
+                StageManager.replace("fxml/MainActivity/mainActivity.fxml",true);
             }else {
                 loginMessageLabel.setText("Invalid Login , Please Try Again !!");
             }

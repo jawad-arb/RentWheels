@@ -13,9 +13,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -35,7 +36,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jawad/dev/RentWheels/src/main/resources/org/team/rentwheels/css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jawad/dev/RentWheels/src/main/resources/org/team/rentwheels/assets/img&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -44,6 +46,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -62,11 +65,11 @@
   </component>
   <component name="RunManager" selected="Application.RentWheels">
     <configuration name="LoginController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.controllers.Login.LoginController" />
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.controllers.login.LoginController" />
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.team.rentwheels.controllers.Login.*" />
+          <option name="PATTERN" value="org.team.rentwheels.controllers.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -79,7 +82,7 @@
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.team.rentwheels.controllers.*" />
+          <option name="PATTERN" value="org.team.rentwheels.controllers.mainActivity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,7 +142,21 @@
       <workItem from="1697918915075" duration="264000" />
       <workItem from="1697920036117" duration="45000" />
       <workItem from="1697968103767" duration="817000" />
-      <workItem from="1697969120443" duration="4273000" />
+      <workItem from="1697969120443" duration="4568000" />
+      <workItem from="1697991948769" duration="1995000" />
+      <workItem from="1698052306691" duration="761000" />
+      <workItem from="1698054128956" duration="133000" />
+      <workItem from="1698054281102" duration="1616000" />
+      <workItem from="1698058830049" duration="240000" />
+      <workItem from="1698060354626" duration="241000" />
+      <workItem from="1698061022608" duration="20000" />
+      <workItem from="1698061454568" duration="83000" />
+      <workItem from="1698062552502" duration="8000" />
+      <workItem from="1698062765137" duration="14000" />
+      <workItem from="1698062868858" duration="48000" />
+      <workItem from="1698064663613" duration="536000" />
+      <workItem from="1698069329086" duration="607000" />
+      <workItem from="1698071140058" duration="10000" />
     </task>
     <servers />
   </component>
