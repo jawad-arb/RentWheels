@@ -5,7 +5,7 @@ module org.team.rentwheels {
 
 
     opens org.team.rentwheels to javafx.fxml;
-
+    opens org.team.rentwheels.controllers.brand to javafx.fxml;
     opens org.team.rentwheels.models to javafx.base;
 
 
@@ -13,5 +13,5 @@ module org.team.rentwheels {
 
     exports org.team.rentwheels.controllers.login;
     exports org.team.rentwheels.controllers.mainActivity;
-
+    exports org.team.rentwheels.controllers.brand;
 }

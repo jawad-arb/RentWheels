@@ -3,7 +3,8 @@ CREATE TABLE Brands (
     brand_id INT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     country VARCHAR(50),
-    foundation_year INT
+    foundation_year INT,
+    image_data BLOB
 );
 
 -- Create the Cars table

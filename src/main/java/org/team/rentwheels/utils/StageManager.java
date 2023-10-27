@@ -30,7 +30,8 @@ public class StageManager {
     public static void replace(String file, boolean resizable) throws IOException,RuntimeException {
         Parent loader = FXMLLoader.load(RentWheels.class.getResource(file));
         mainStage.close();
-        scene = new Scene(loader,MAIN_WIDTH,MAIN_HIGHT);
+//        scene = new Scene(loader,MAIN_WIDTH,MAIN_HIGHT);
+        scene = new Scene(loader,600,400);
         mainStage.setScene(scene);
         mainStage.setResizable(resizable);
         mainStage.show();

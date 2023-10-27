@@ -6,6 +6,5 @@ import java.sql.SQLException;
 
 public interface UserRepository {
 
-
     User getUserIfExist(String username, String password) throws SQLException;
 }
