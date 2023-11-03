@@ -1,4 +1,5 @@
 -- Create the Brands table
+-- Done
 CREATE TABLE Brands (
     brand_id INT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -20,6 +21,7 @@ CREATE TABLE Cars (
     FOREIGN KEY (brand_id) REFERENCES Brands(brand_id)
 );
 
+-- doing
 -- Create the Customers table
 CREATE TABLE Customers (
     customer_id INT PRIMARY KEY,

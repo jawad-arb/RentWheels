@@ -12,8 +12,9 @@ public interface BrandRepository {
     void addBrand(String brandName, String countyOfMake, int foundationYear, byte[] imageByte) throws SQLException, IOException;
     //Get Brands by brandName
     List<Brand> getBrandByName(String brandName) throws SQLException;
-    //get Brand by BrandName and foundation year
-//    Brand getBrandByName(String brandName,int foundationYear);
+
+    List<Brand> getAllBrands() throws SQLException;
+
     //Delete
     void DeleteBrandById(int id) throws SQLException;
 

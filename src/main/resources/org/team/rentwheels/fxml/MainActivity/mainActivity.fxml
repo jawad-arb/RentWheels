@@ -39,7 +39,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="10.0" prefHeight="45.0" prefWidth="200.0" spacing="15.0">
+            <HBox fx:id="BrandsHB" alignment="CENTER_LEFT" layoutX="30.0" layoutY="10.0" onMouseClicked="#BrandEvent" prefHeight="45.0" prefWidth="200.0" spacing="15.0">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -149,7 +149,7 @@
                               <Image url="@../../assets/img/search.png" />
                            </image>
                         </ImageView>
-                        <TextField prefHeight="24.0" prefWidth="175.0" promptText="Search" styleClass="transparent" stylesheets="@../../css/style.css">
+                        <TextField fx:id="searchTF" prefHeight="24.0" prefWidth="175.0" promptText="Search" styleClass="transparent" stylesheets="@../../css/style.css">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -164,7 +164,7 @@
                         <Image url="@../../assets/img/bell.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logoutIV" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/img/logout.png" />
                      </image>

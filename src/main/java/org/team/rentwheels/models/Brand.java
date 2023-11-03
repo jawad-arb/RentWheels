@@ -5,7 +5,6 @@ public class Brand {
     private String brandName;
     private String countyOfMake;
     private int foundationYear;
-
     private byte[] image;
 
 

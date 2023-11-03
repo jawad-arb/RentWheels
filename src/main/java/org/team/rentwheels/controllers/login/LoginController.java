@@ -55,8 +55,8 @@ public class LoginController implements Initializable {
             if (user != null){
                 currentUser = user;
                 loginMessageLabel.setText("Welcome to the application !!");
-//                StageManager.replace("fxml/MainActivity/mainActivity.fxml",true);
-                    StageManager.replace("fxml/Brand/addBrand.fxml",true);
+                StageManager.replace("fxml/MainActivity/mainActivity.fxml",true,1200,700);
+//                    StageManager.replace("fxml/Brand/addBrand.fxml",true);
             }else {
                 loginMessageLabel.setText("Invalid Login , Please Try Again !!");
             }
