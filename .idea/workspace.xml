@@ -39,7 +39,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jawad/school_TPs/java/TP4(swing)&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jawad/dev/git/restaurant_admin_panel&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -68,9 +68,22 @@
       <recent name="$PROJECT_DIR$/src/main/resources/org/team/rentwheels" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CustomerRepositoryImpl">
+  <component name="RunManager" selected="Application.CarRepositoryImpl">
     <configuration name="BrandRepositoryImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.BrandRepositoryImpl" />
+      <module name="RentWheels" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.team.rentwheels.repositories.implementations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarRepositoryImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.CarRepositoryImpl" />
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
@@ -123,6 +136,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CarRepositoryImpl" />
         <item itemvalue="Application.CustomerRepositoryImpl" />
         <item itemvalue="Application.RentWheels" />
         <item itemvalue="Application.LoginController" />
@@ -232,7 +246,16 @@
       <workItem from="1699008796508" duration="10781000" />
       <workItem from="1699045416996" duration="160000" />
       <workItem from="1699045599296" duration="39000" />
-      <workItem from="1699045654524" duration="84000" />
+      <workItem from="1699045654524" duration="994000" />
+      <workItem from="1699046877359" duration="625000" />
+      <workItem from="1699085555923" duration="626000" />
+      <workItem from="1699089513995" duration="32000" />
+      <workItem from="1699090443540" duration="13000" />
+      <workItem from="1699090939016" duration="62000" />
+      <workItem from="1699112535249" duration="283000" />
+      <workItem from="1699112897371" duration="25000" />
+      <workItem from="1699114449517" duration="8185000" />
+      <workItem from="1699137072477" duration="2232000" />
     </task>
     <servers />
   </component>

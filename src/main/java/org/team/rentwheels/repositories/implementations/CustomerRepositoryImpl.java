@@ -34,7 +34,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         ps.setInt(1,id);
         ps.executeUpdate();
         if(ps!=null){
-            System.out.println("yoooo broooo");
+            ps.close();
         }
     }
 

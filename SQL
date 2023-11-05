@@ -7,7 +7,7 @@ CREATE TABLE Brands (
     foundation_year INT,
     image_data BLOB
 );
-
+-- working on
 -- Create the Cars table
 CREATE TABLE Cars (
     car_id INT PRIMARY KEY,
@@ -20,8 +20,9 @@ CREATE TABLE Cars (
     last_maintenance_date DATE,
     FOREIGN KEY (brand_id) REFERENCES Brands(brand_id)
 );
+-- "In maintenance," "Available for rent after maintenance," "Scheduled maintenance,"
 
--- doing
+-- done
 -- Create the Customers table
 CREATE TABLE Customers (
     customer_id INT PRIMARY KEY,
