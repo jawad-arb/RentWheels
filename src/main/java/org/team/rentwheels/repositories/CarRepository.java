@@ -11,12 +11,4 @@ public interface CarRepository {
     Car getCarById(int carId) throws SQLException;
     List<Car> getAllCars() throws SQLException;
 
-//    int carId,
-//    int brandId,
-//    String model,
-//    double price,
-//    boolean isAvailable,
-//    byte[] car_image,
-//    String maintenance_status,
-//    Date last_maintenance_date
 }

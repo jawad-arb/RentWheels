@@ -7,7 +7,7 @@ CREATE TABLE Brands (
     foundation_year INT,
     image_data BLOB
 );
--- working on
+-- done
 -- Create the Cars table
 CREATE TABLE Cars (
     car_id INT PRIMARY KEY,
@@ -43,12 +43,16 @@ CREATE TABLE Reservations (
     end_date DATE NOT NULL,
     total_cost DECIMAL(10, 2) NOT NULL,
 --  status VARCHAR(50) NOT NULL,
+-- Pending: The reservation has been made but hasn't started yet.
+ --Confirmed: The reservation is confirmed and active.
+ --Returned: The car associated with the reservation has been returned.
+ --Canceled: The reservation has been canceled by the customer or by the rental service.
     FOREIGN KEY (car_id) REFERENCES Cars(car_id),
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 
-
+-- done
 -- Create the Users table
 -- CREATE TABLE Users (
    --  admin_id INT PRIMARY KEY,
@@ -60,6 +64,7 @@ CREATE TABLE Reservations (
    --  phone VARCHAR(20),
     -- role VARCHAR(50)
 -- );
+
 
 -- Create the Blacklist table
 -- put the Customers that damaged the car or not return the
@@ -74,3 +79,13 @@ CREATE TABLE Blacklist (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     FOREIGN KEY (car_id) REFERENCES Cars(car_id)
 );
+
+Return Process:
+
+When the user returns the car, update the status of the car to "available" for others to reserve.
+Calculate any additional charges if the car is returned late or with damages.
+
+
+// when the StartDate set the status as confirmed
+// when the Return date set the status as Returned
+// for the availability of the car set available

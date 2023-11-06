@@ -90,34 +90,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         return customers;
     }
 
-    /**
-     * @Testing_field
-     *  * * */
-    public static void main(String[] args) throws SQLException {
-//        List<Customer> customers=new ArrayList<>();
-        CustomerRepository customerRepository=new CustomerRepositoryImpl();
-//        Customer updatedCust=new Customer("jawad","arbahi","jawad@gmail.com","0645674567","test111");
-////        System.out.println(customerRepository.getAllCustomers());
-//        customers=customerRepository.getAllCustomers();
-        try {
-            List<Customer> customers = customerRepository.getAllCustomers();
-
-            // Displaying the retrieved customers
-            for (Customer customer : customers) {
-                System.out.println("Customer ID: " + customer.getId());
-                System.out.println("Name: " + customer.getFirstName() + " " + customer.getLastName());
-                System.out.println("Email: " + customer.getEmail());
-                System.out.println("Phone: " + customer.getPhone());
-                System.out.println("Address: " + customer.getAddress());
-                System.out.println("----------------------------");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle exceptions here
-        }
-    }
-
-
 
 
 }
