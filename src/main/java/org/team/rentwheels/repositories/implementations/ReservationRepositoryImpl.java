@@ -18,38 +18,36 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     DatabaseOperations dbOperations = new DatabaseOperations();
 
     @Override
-    public void addReservation(Reservation reservation) {
-        if(isCarAvailableForReservation(reservation.getCarId(),reservation.getStartDate(),reservation.getEndDate())){
-            // if the car is Available add the reservation to database
-            // if a Customer reserved 3 time give him promotion for 15%
-        }else{
-            // car not available in the period of time
-            // throw new CarNotAvailableException("Car is not available for the requested period");
-
-        }
-
+    public void addReservation(Reservation reservation) throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(ADD_RESERVATION_QUEY);
+        ps.setInt(1,reservation.getCarId());
+        ps.setInt(2,reservation.getCustomerId());
+        ps.setDate(3,reservation.getReservationDate());
+        ps.setDate(4,reservation.getStartDate());
+        ps.setDate(5,reservation.getEndDate());
+        ps.setDouble(6,reservation.getTotalCost());
+        ps.setString(7,reservation.getStatus());
+        ps.executeUpdate();
     }
 
     @Override
     public void deleteReservation(int reservationId) throws SQLException {
-        //check if the reservation exists
-        Reservation existingReservation=getReservationById(reservationId);
-        if(existingReservation!=null){
-            // delete from database
-        }else{
-            // throw exception ReservationNotFound
-        }
+        PreparedStatement ps=dbOperations.setConnection(DELETE_RESERVATION_BY_ID);
+        ps.setInt(1,reservationId);
+        ps.executeUpdate();
     }
 
     @Override
     public void updateReservation(Reservation updatedReservation) throws SQLException {
-        //check if the reservation Exists
-        Reservation existingReservation=getReservationById(updatedReservation.getId());
-        if(existingReservation!=null){
-            // update the reservation fields
-        }else{
-            //throw Exception ReservationNotFound
-        }
+        PreparedStatement ps=dbOperations.setConnection(UPDATE_RESERVATION);
+        ps.setInt(1,updatedReservation.getCarId());
+        ps.setInt(2,updatedReservation.getCustomerId());
+        ps.setDate(3,updatedReservation.getReservationDate());
+        ps.setDate(4,updatedReservation.getStartDate());
+        ps.setDate(5,updatedReservation.getEndDate());
+        ps.setDouble(6,updatedReservation.getTotalCost());
+        ps.setString(7,updatedReservation.getStatus());
+        ps.executeUpdate();
     }
 
     @Override
@@ -120,47 +118,39 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         ResultSet rs=ps.executeQuery();
         if (rs.next()){
             return rs.getInt(1);
-        }else{
-            return 0;
         }
+            return 0;
     }
 
     @Override
-    public boolean isCarAvailableForReservation(int carId, Date startDate, Date endDate) {
+    public boolean isCarAvailableForReservation(int carId, Date startDate, Date endDate) throws SQLException {
+        // fetch all Reservations with the same carId
+        List<Reservation> reservationsForCar=getAllReservationByCarId(carId);
+        // check the dates if the car available in the start date
+
         return false;
     }
 
     @Override
-    public int getTotalNumberOfReservations() {
-        return 0;
+    public int getTotalNumberOfReservations() throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(GET_TOTAL_NUMBER_OF_RESERVATIONS);
+        ResultSet rs=ps.executeQuery();
+        if(rs.next()){
+            return rs.getInt(1);
+        }
+            return 0;
     }
 
     @Override
-    public double calculateTotalRevenueFromReservations() {
+    public double calculateTotalRevenueFromReservations() throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(CALCULATE_TOTAL_REVENUE_FROM_RESERVATIONS);
+        ResultSet rs=ps.executeQuery();
+        if(rs.next()){
+            return rs.getDouble(1);
+        }
         return 0;
     }
 
-    @Override
-    public int calculateNumberOfDays(Reservation reservation) {
-        Date startDate = reservation.getStartDate();
-        Date endDate = reservation.getEndDate();
-
-        // Calculate the difference between the start date and the end date.
-        long difference = endDate.getTime() - startDate.getTime();
-
-        // Add one to the difference to account for the first day of the reservation.
-        int numberOfDays = (int) (difference / (1000 * 60 * 60 * 24)) + 1;
-
-        return numberOfDays;
-    }
-
-
-    public static void main(String[] args) throws SQLException {
-        ReservationRepository reservationRepository=new ReservationRepositoryImpl();
-//        Reservation reservation=new Reservation();
-//        List<Reservation> reservations=reservationRepository.getAllReservationByCustomerId(6);
-        System.out.println(reservationRepository.getNumberOfReservationsByCustomerId(6));
-    }
 
 
 }
