@@ -16,13 +16,11 @@ public interface ReservationRepository {
      */
     void addReservation(Reservation reservation) throws SQLException;
     void deleteReservation(int reservationId) throws SQLException;
-    void updateReservation(Reservation updatedReservation) throws SQLException;
+    void updateReservation(int reservationId,Reservation updatedReservation) throws SQLException;
     Reservation getReservationById(int reservationId) throws SQLException;
     List<Reservation> getAllReservationByCarId(int carId) throws SQLException;
     List<Reservation> getAllReservationByCustomerId(int customerId) throws SQLException;
     int getNumberOfReservationsByCustomerId(int customerId) throws SQLException;
-    boolean isCarAvailableForReservation(int carId, Date startDate, Date endDate) throws SQLException;
     int getTotalNumberOfReservations() throws SQLException;
     double calculateTotalRevenueFromReservations() throws SQLException;
-
 }

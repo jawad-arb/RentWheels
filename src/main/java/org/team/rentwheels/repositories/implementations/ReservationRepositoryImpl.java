@@ -4,7 +4,6 @@ import org.team.rentwheels.models.Reservation;
 import org.team.rentwheels.repositories.ReservationRepository;
 import org.team.rentwheels.utils.DatabaseOperations;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,7 +37,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public void updateReservation(Reservation updatedReservation) throws SQLException {
+    public void updateReservation(int reservationId,Reservation updatedReservation) throws SQLException {
         PreparedStatement ps=dbOperations.setConnection(UPDATE_RESERVATION);
         ps.setInt(1,updatedReservation.getCarId());
         ps.setInt(2,updatedReservation.getCustomerId());
@@ -47,6 +46,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         ps.setDate(5,updatedReservation.getEndDate());
         ps.setDouble(6,updatedReservation.getTotalCost());
         ps.setString(7,updatedReservation.getStatus());
+        ps.setInt(8,reservationId);
         ps.executeUpdate();
     }
 
@@ -122,14 +122,6 @@ public class ReservationRepositoryImpl implements ReservationRepository {
             return 0;
     }
 
-    @Override
-    public boolean isCarAvailableForReservation(int carId, Date startDate, Date endDate) throws SQLException {
-        // fetch all Reservations with the same carId
-        List<Reservation> reservationsForCar=getAllReservationByCarId(carId);
-        // check the dates if the car available in the start date
-
-        return false;
-    }
 
     @Override
     public int getTotalNumberOfReservations() throws SQLException {
@@ -150,7 +142,6 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         }
         return 0;
     }
-
 
 
 }

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ReservationService {
+    private static final double discount=15;
     private final ReservationRepository reservationRepository;
 
     public ReservationService(){
@@ -18,6 +19,7 @@ public class ReservationService {
         this.reservationRepository = reservationRepository;
     }
 
+
     /**
      * @All the methods in service
      * @param reservation
@@ -26,38 +28,48 @@ public class ReservationService {
 
     void addReservation(Reservation reservation) throws SQLException{
         if(!isCarAvailableForReservation(reservation.getCarId(),reservation.getStartDate(),reservation.getEndDate()))
-            throw new RuntimeException();
-
-        // if the car is Available add the reservation to database
-        // check if the Customer in the BlackList or not
-        // if a Customer reserved 3 time give him promotion for 15%
-
-        // car not available in the period of time
-        // throw new CarNotAvailableException("Car is not available for the requested period");
-
+            throw new RuntimeException("Car is not available for the requested period");
+        if(getNumberOfReservationsByCustomerId(reservation.getCustomerId())>=3){
+            double discountedCost = applyPromotion(reservation, discount);
+            reservation.setTotalCost(discountedCost);
+        }
+        reservationRepository.addReservation(reservation);
     }
-    void deleteReservation(int reservationId) throws SQLException{
-//check if the reservation exists
+    void deleteReservation(int reservationId) throws SQLException,RuntimeException{
         Reservation existingReservation=getReservationById(reservationId);
-        if(existingReservation!=null){
-            // delete from database
-        }else{
-            // throw exception ReservationNotFound
-        }
+        if (existingReservation==null)
+            throw new RuntimeException("Reservation Not Found");
+        this.reservationRepository.deleteReservation(reservationId);
     }
-    void updateReservation(Reservation updatedReservation) throws SQLException{
-        //check if the reservation Exists
-        Reservation existingReservation=getReservationById(updatedReservation.getId());
-        if(existingReservation!=null){
-            // update the reservation fields
-        }else{
-            //throw Exception ReservationNotFound
-        }
+
+    /**
+     *
+     * @param reservationId
+     * @param updatedReservation
+     * @throws SQLException
+     * @Check if the reservation Exists
+     */
+    void updateReservation(int reservationId,Reservation updatedReservation) throws SQLException{
+        Reservation existingReservation=getReservationById(reservationId);
+        if (existingReservation==null)
+            throw new RuntimeException("Reservation Not Found");
+        this.reservationRepository.updateReservation(reservationId,updatedReservation);
     }
+    /**
+     *
+     * @param carId
+     * @param startDate
+     * @param endDate
+     * @return true--> carAvailable
+     * @throws SQLException
+     */
     public boolean isCarAvailableForReservation(int carId, Date startDate, Date endDate) throws SQLException{
-        // fetch all Reservations with the same carId
         List<Reservation> reservationsForCar=getAllReservationByCarId(carId);
-        // check the dates if the car available in the start date
+        for (Reservation reservation:reservationsForCar){
+            if (doDatesOverLap(startDate,endDate,reservation.getStartDate(),reservation.getEndDate()))
+                return false;
+        }
+        return true;
     }
     Reservation getReservationById(int reservationId) throws SQLException{
         return this.reservationRepository.getReservationById(reservationId);
@@ -85,5 +97,31 @@ public class ReservationService {
         int numberOfDays = (int) (difference / (1000 * 60 * 60 * 24)) + 1;
         return numberOfDays;
     }
+
+    /**
+     *
+     * @param startDate1
+     * @param endDate1
+     * @param startDate2
+     * @param endDate2
+     * @return true the Dates are OverLapes | false the Dates are not OverLapes so we are good to go
+     */
+    public boolean doDatesOverLap(Date startDate1, Date endDate1,Date startDate2, Date endDate2){
+        return startDate1.before(endDate2) && startDate2.before(endDate1);
+    }
+
+    /**
+     *
+     * @param reservation
+     * @param discountPercentage
+     * @return apply discount for customer with more 3 reservations
+     */
+    public Double applyPromotion(Reservation reservation, double discountPercentage) throws SQLException {
+        double reservationTotal = reservation.getTotalCost();
+        double discountAmount = (discountPercentage / 100) * reservationTotal;
+        double updatedTotalCost = reservationTotal - discountAmount;
+        return updatedTotalCost;
+    }
+
 
 }
