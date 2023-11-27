@@ -13,7 +13,6 @@ import java.util.List;
 import static org.team.rentwheels.queries.BlackListQuery.*;
 
 public class BlackListRepositoryImpl implements BlackListRepository {
-
     DatabaseOperations dbOperations=new DatabaseOperations();
     @Override
     public void addItemToBlackList(BlackList blackListItem) throws SQLException {
@@ -28,13 +27,15 @@ public class BlackListRepositoryImpl implements BlackListRepository {
 
     @Override
     public void deleteItemFromBlackList(int entry_id) throws SQLException {
+        if(getItemFromBlackListWithId(entry_id)==null)
+            throw new RuntimeException("the is is not exists");
         PreparedStatement ps=dbOperations.setConnection(DELETE_FROM_BLACK_LIST);
         ps.setInt(1,entry_id);
         ps.executeUpdate();
     }
 
     @Override
-    public void updateItemFromBlackList(int entry_id, BlackList updatedBlackListItem) throws SQLException {
+    public void updateItemFromBlackList(int entry_id, BlackList updatedBlackListItem) throws SQLException,RuntimeException {
         PreparedStatement ps =dbOperations.setConnection(UPDATE_FROM_BLACK_LIST_BY_ENTRY_ID);
         ps.setInt(1,updatedBlackListItem.getCustomerId());
         ps.setInt(2,updatedBlackListItem.getCarId());
@@ -56,7 +57,6 @@ public class BlackListRepositoryImpl implements BlackListRepository {
 
     @Override
     public BlackList getItemFromBlackListWithId(int entry_id) throws SQLException {
-
         PreparedStatement ps =dbOperations.setConnection(GET_ITEM_FROM_BLACK_LIST_BY_ENTRY_ID);
         ps.setInt(1,entry_id);
         ResultSet rs=ps.executeQuery();
@@ -64,7 +64,6 @@ public class BlackListRepositoryImpl implements BlackListRepository {
             return null;
 
         BlackList blackList=new BlackList();
-        blackList.setId(rs.getInt("entry_id"));
         blackList.setCustomerId(rs.getInt("customer_id"));
         blackList.setCarId(rs.getInt("car_id"));
         blackList.setStartDate(rs.getDate("start_date"));

@@ -10,8 +10,6 @@ public class RentWheels extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         StageManager.init(stage,true);
-//        System.out.println(LoginController.getCurrentUser());
-
     }
 
     public static void main(String[] args) {

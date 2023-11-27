@@ -60,10 +60,10 @@ public class AddBrandController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lblSelectImage.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-                fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(
+            fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("ImageFile", "*.png", "*.jpg", "*.jpeg")
-        );
+            );
         file = fileChooser.showOpenDialog(null);
         if(file !=null){
             try {
