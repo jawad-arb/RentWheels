@@ -12,6 +12,24 @@ public class Car {
     private byte[] car_image;
     private String maintenance_status;
     private Date last_maintenance_date;
+    private Date carInsuranceStartDate;
+    private Date carInsuranceEndDate;
+
+    public Date getCarInsuranceStartDate() {
+        return carInsuranceStartDate;
+    }
+
+    public void setCarInsuranceStartDate(Date carInsuranceStartDate) {
+        this.carInsuranceStartDate = carInsuranceStartDate;
+    }
+
+    public Date getCarInsuranceEndDate() {
+        return carInsuranceEndDate;
+    }
+
+    public void setCarInsuranceEndDate(Date carInsuranceEndDate) {
+        this.carInsuranceEndDate = carInsuranceEndDate;
+    }
 
     public Car() {
     }
@@ -22,7 +40,9 @@ public class Car {
                boolean isAvailable,
                byte[] car_image,
                String maintenance_status,
-               Date last_maintenance_date) {
+               Date last_maintenance_date,
+               Date carInsuranceStartDate,
+               Date carInsuranceEndDate) {
         this.brandId = brandId;
         this.model = model;
         this.price = price;
@@ -30,6 +50,8 @@ public class Car {
         this.car_image = car_image;
         this.maintenance_status = maintenance_status;
         this.last_maintenance_date = last_maintenance_date;
+        this.carInsuranceStartDate=carInsuranceStartDate;
+        this.carInsuranceEndDate=carInsuranceEndDate;
     }
 
     public Car(int carId,
@@ -39,7 +61,9 @@ public class Car {
                boolean isAvailable,
                byte[] car_image,
                String maintenance_status,
-               Date last_maintenance_date) {
+               Date last_maintenance_date,
+               Date carInsuranceStartDate,
+               Date carInsuranceEndDate) {
         this.carId = carId;
         this.brandId = brandId;
         this.model = model;
@@ -48,6 +72,8 @@ public class Car {
         this.car_image = car_image;
         this.maintenance_status = maintenance_status;
         this.last_maintenance_date = last_maintenance_date;
+        this.carInsuranceStartDate=carInsuranceStartDate;
+        this.carInsuranceEndDate=carInsuranceEndDate;
     }
 
     public int getCarId() {

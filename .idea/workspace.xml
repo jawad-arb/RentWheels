@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d304b1f-7aee-45fb-9850-e454a275aa2f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/team/rentwheels/repositories/BlackListRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/team/rentwheels/repositories/implementations/CarRepositoryImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8572c042-7415-41c5-841f-d8e9017d4794.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8572c042-7415-41c5-841f-d8e9017d4794.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8572c042-7415-41c5-841f-d8e9017d4794/storage_v2/_src_/schema/RentWheels.McX48w.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8572c042-7415-41c5-841f-d8e9017d4794/storage_v2/_src_/schema/RentWheels.McX48w.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/RentWheels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/RentWheels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/brand/AddBrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/brand/AddBrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/BlackListQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/BlackListQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/BlackListRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/BlackListRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/RentWheels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/RentWheels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/BlackListQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/BlackListQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/BlackListRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/BlackListRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BlackListService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BlackListService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CarQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CarQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CarRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CarRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/queries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/queries.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql/queries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/queries.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jawad/Documents/RentWheels-main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jawad/dev/RentWheels&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -74,7 +72,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -101,32 +99,16 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.team.rentwheels.repositories.implementations" />
       <recent name="org.team.rentwheels.repositories" />
       <recent name="org.team.rentwheels.services" />
-      <recent name="org.team.rentwheels.repositories.implementations" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BlackListRepositoryTest.checkIfCustomerExistInBlackList">
+  <component name="RunManager" selected="JUnit.CarRepositoryImplTest.getCarById">
     <configuration name="queries.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/sql/queries.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
-    </configuration>
-    <configuration name="BlackListRepositoryTest.addItemToBlackList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RentWheels" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.team.rentwheels.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.BlackListRepositoryTest" />
-      <option name="METHOD_NAME" value="addItemToBlackList" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="BlackListRepositoryTest.checkIfCustomerExistInBlackList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentWheels" />
@@ -144,49 +126,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BlackListRepositoryTest.deleteItemFromBlackList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CarRepositoryImplTest.addCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.team.rentwheels.repositories.*" />
+          <option name="PATTERN" value="org.team.rentwheels.repositories.implementations.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.BlackListRepositoryTest" />
-      <option name="METHOD_NAME" value="deleteItemFromBlackList" />
+      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories.implementations" />
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.CarRepositoryImplTest" />
+      <option name="METHOD_NAME" value="addCar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BlackListRepositoryTest.getNbrCustomersInBlackList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CarRepositoryImplTest.deleteCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.team.rentwheels.repositories.*" />
+          <option name="PATTERN" value="org.team.rentwheels.repositories.implementations.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.BlackListRepositoryTest" />
-      <option name="METHOD_NAME" value="getNbrCustomersInBlackList" />
+      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories.implementations" />
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.CarRepositoryImplTest" />
+      <option name="METHOD_NAME" value="deleteCar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BlackListRepositoryTest.updateItemFromBlackList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CarRepositoryImplTest.getCarById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.team.rentwheels.repositories.*" />
+          <option name="PATTERN" value="org.team.rentwheels.repositories.implementations.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.BlackListRepositoryTest" />
-      <option name="METHOD_NAME" value="updateItemFromBlackList" />
+      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories.implementations" />
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.CarRepositoryImplTest" />
+      <option name="METHOD_NAME" value="getCarById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarRepositoryImplTest.updateCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RentWheels" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.team.rentwheels.repositories.implementations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories.implementations" />
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.CarRepositoryImplTest" />
+      <option name="METHOD_NAME" value="updateCar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -194,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CarRepositoryImplTest.getCarById" />
+        <item itemvalue="JUnit.CarRepositoryImplTest.updateCar" />
+        <item itemvalue="JUnit.CarRepositoryImplTest.deleteCar" />
+        <item itemvalue="JUnit.CarRepositoryImplTest.addCar" />
         <item itemvalue="JUnit.BlackListRepositoryTest.checkIfCustomerExistInBlackList" />
-        <item itemvalue="JUnit.BlackListRepositoryTest.getNbrCustomersInBlackList" />
-        <item itemvalue="JUnit.BlackListRepositoryTest.addItemToBlackList" />
-        <item itemvalue="JUnit.BlackListRepositoryTest.updateItemFromBlackList" />
-        <item itemvalue="JUnit.BlackListRepositoryTest.deleteItemFromBlackList" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +356,11 @@
       <workItem from="1701087079491" duration="1772000" />
       <workItem from="1701092474133" duration="9000" />
       <workItem from="1701093478506" duration="19000" />
-      <workItem from="1701118134116" duration="3326000" />
+      <workItem from="1701118134116" duration="3926000" />
+      <workItem from="1701160340878" duration="19000" />
+      <workItem from="1701161210629" duration="213000" />
+      <workItem from="1701177974615" duration="3781000" />
+      <workItem from="1701183125582" duration="2789000" />
     </task>
     <servers />
   </component>

@@ -24,6 +24,8 @@ public class CarRepositoryImpl implements CarRepository {
         ps.setBytes(5,addedCar.getCar_image());
         ps.setString(6,addedCar.getMaintenance_status());
         ps.setDate(7,addedCar.getLast_maintenance_date());
+        ps.setDate(8,addedCar.getCarInsuranceStartDate());
+        ps.setDate(9,addedCar.getCarInsuranceEndDate());
         ps.executeUpdate();
     }
 
@@ -44,7 +46,9 @@ public class CarRepositoryImpl implements CarRepository {
         ps.setBytes(5,updatedCar.getCar_image());
         ps.setString(6,updatedCar.getMaintenance_status());
         ps.setDate(7,updatedCar.getLast_maintenance_date());
-        ps.setInt(8,carId);
+        ps.setDate(8,updatedCar.getCarInsuranceStartDate());
+        ps.setDate(9,updatedCar.getCarInsuranceEndDate());
+        ps.setInt(10,carId);
         ps.executeUpdate();
         if (ps != null) {
             ps.close();
@@ -65,6 +69,8 @@ public class CarRepositoryImpl implements CarRepository {
             car.setAvailable(rs.getBoolean("availability"));
             car.setMaintenance_status(rs.getString("maintenance_status"));
             car.setLast_maintenance_date(rs.getDate("last_maintenance_date"));
+            car.setCarInsuranceStartDate(rs.getDate("Insurance_start_date"));
+            car.setCarInsuranceEndDate(rs.getDate("Insurance_end_date"));
             return car;
         }
         return null;
@@ -84,6 +90,8 @@ public class CarRepositoryImpl implements CarRepository {
             car.setAvailable(rs.getBoolean("availability"));
             car.setMaintenance_status(rs.getString("maintenance_status"));
             car.setLast_maintenance_date(rs.getDate("last_maintenance_date"));
+            car.setCarInsuranceStartDate(rs.getDate("Insurance_start_date"));
+            car.setCarInsuranceEndDate(rs.getDate("Insurance_end_date"));
             carsList.add(car);
         }
         return carsList;
