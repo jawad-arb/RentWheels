@@ -1,5 +1,6 @@
 package org.team.rentwheels.services;
 
+import org.team.rentwheels.models.Car;
 import org.team.rentwheels.models.Reservation;
 import org.team.rentwheels.repositories.ReservationRepository;
 import org.team.rentwheels.repositories.implementations.ReservationRepositoryImpl;
@@ -64,10 +65,21 @@ public class ReservationService {
      * @throws SQLException
      */
     public boolean isCarAvailableForReservation(int carId, Date startDate, Date endDate) throws SQLException{
+        CarService carService=new CarService();
         List<Reservation> reservationsForCar=getAllReservationByCarId(carId);
         for (Reservation reservation:reservationsForCar){
             if (doDatesOverLap(startDate,endDate,reservation.getStartDate(),reservation.getEndDate()))
                 return false;
+        }
+        Car car=carService.getCarById(carId);
+        Date carInsuranceStartDate = car.getCarInsuranceStartDate();
+        Date carInsuranceEndDate = car.getCarInsuranceEndDate();
+        /**
+         * @Return false
+         * @if endDate for reservation comes after endDate For car insurance
+         */
+        if (endDate.after(carInsuranceEndDate)) {
+            return false;
         }
         return true;
     }
