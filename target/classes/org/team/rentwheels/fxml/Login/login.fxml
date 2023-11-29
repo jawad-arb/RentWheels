@@ -1,83 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="690.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.login.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="960.0" style="-fx-background-color: #FFFCF7;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.login.LoginController">
    <children>
-      <VBox prefHeight="488.0" prefWidth="287.0" style="-fx-background-color: #F9F5DB;">
+      <ImageView fitHeight="530.0" fitWidth="620.0" layoutX="370.0" pickOnBounds="true" preserveRatio="true" >
+         <image>
+            <Image url="@../../assets/img/test.png" />
+         </image>
+      </ImageView>
+      <VBox layoutY="164.0" prefHeight="358.0" prefWidth="322.0">
          <children>
-            <ImageView fitHeight="270.0" fitWidth="287.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/img/RentWheelsLogo.png" />
-               </image>
-               <VBox.margin>
-                  <Insets top="110.0" />
-               </VBox.margin>
-            </ImageView>
+            <Pane prefHeight="398.0" prefWidth="322.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="80.0" text="username">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="33.0" layoutY="152.0" prefHeight="21.0" prefWidth="95.0" text="password">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="userNameTextField" layoutX="153.0" layoutY="76.0" prefHeight="30.0" prefWidth="176.0" promptText="username" stylesheets="@../../css/textField.css" />
+                  <PasswordField fx:id="passwordPasswordField" layoutX="153.0" layoutY="148.0" prefHeight="30.0" prefWidth="176.0" promptText="password" stylesheets="@../../css/textField.css" />
+                  <JFXButton fx:id="LoginBtn" layoutX="128.0" layoutY="224.0" onAction="#loginButtonOnAction" prefHeight="41.0" prefWidth="113.0" ripplerFill="#fa903c" style="-fx-background-color: #FFBA83; -fx-background-radius: 20;" text="Login">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="loginMessageLabel" layoutX="72.0" layoutY="38.0" prefHeight="22.0" prefWidth="296.0" textFill="RED" />
+               </children>
+            </Pane>
          </children>
       </VBox>
-      <VBox layoutX="330.0" layoutY="135.0" prefHeight="306.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF;">
-         <children>
-            <Label text="Username">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <TextField fx:id="userNameTextField" prefHeight="28.0" promptText="Username" style="-fx-background-color: #F9F5DB;" styleClass="text-field-login" stylesheets="@../../css/inputs.css">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </TextField>
-            <Label layoutX="10.0" layoutY="10.0" text="Password">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="passwordPasswordField" prefHeight="28.0" promptText="*******" style="-fx-background-color: #F9F5DB;" styleClass="text-field-login" stylesheets="@../../css/inputs.css">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </PasswordField>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="LoginBtn" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: #F9F5DB; -fx-font-size: 13;" styleClass="button-orange" stylesheets="@../../css/button.css" text="Login" textAlignment="CENTER">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: #F9F5DB; -fx-font-size: 13;" styleClass="button-orange" stylesheets="@../../css/button.css" text="cancel" textAlignment="CENTER" />
-               </children>
-            </HBox>
-         </children></VBox>
-      <Label alignment="CENTER" layoutX="288.0" layoutY="46.0" prefHeight="51.0" prefWidth="402.0" text="Login Form">
+      <Label layoutX="85.0" layoutY="92.0" text="RentWheels" textAlignment="CENTER">
          <font>
-            <Font size="22.0" />
+            <Font name="System Bold" size="33.0" />
          </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
       </Label>
-      <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="288.0" layoutY="112.0" prefHeight="22.0" prefWidth="402.0" textFill="#ff2b2b" />
-
-
    </children>
 </AnchorPane>

@@ -1,0 +1,11 @@
+.text-field {
+    -fx-width: 229px;
+    -fx-height: 50px;
+    -fx-border-radius: 13px;
+    -fx-border-style: solid; /* Change to 'solid' */
+    -fx-border-color: #000;
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius: 13px;
+    -fx-background-size: cover;
+    -fx-box-shadow: 0px, 4px, 4px, 0px, rgba(0, 0, 0, 0.25); /* Correct syntax */
+}

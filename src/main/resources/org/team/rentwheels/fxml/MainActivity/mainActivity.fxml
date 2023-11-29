@@ -1,211 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.mainActivity.MainActivityController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1150.0" style="-fx-background-color: #F5F7F8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="250.0" stylesheets="@../../css/style.css" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0" spacing="15.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../assets/img/key-set.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="Rent Wheels">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox fx:id="BrandsHB" alignment="CENTER_LEFT" layoutX="30.0" layoutY="10.0" onMouseClicked="#BrandEvent" prefHeight="45.0" prefWidth="200.0" spacing="15.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../assets/img/car.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="Brands">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="2.0" top="110.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="176.0" prefHeight="45.0" prefWidth="200.0" spacing="15.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../assets/img/people.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="Customers">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="2.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="2.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="222.0" prefHeight="45.0" prefWidth="200.0" spacing="15.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../assets/img/key.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="renting">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="2.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="272.0" prefHeight="45.0" prefWidth="200.0" spacing="15.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../assets/img/utilisateur.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="Account">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
+      <VBox prefHeight="700.0" prefWidth="232.0" maxWidth="-Infinity" maxHeight="-Infinity" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
-         <styleClass>
-            <String fx:value="Main-backGround-Color" />
-            <String fx:value="right-side-border" />
-         </styleClass>
-      </VBox>
-   </left>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" spacing="20.0" styleClass="Main-backGround-Color" stylesheets="@../../css/style.css">
+            <Pane prefHeight="132.0" prefWidth="232.0">
                <children>
-                  <Pane prefHeight="55.0" prefWidth="256.0">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </Pane>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="250.0" styleClass="search-container" stylesheets="@../../css/style.css">
-                     <children>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/img/search.png" />
-                           </image>
-                        </ImageView>
-                        <TextField fx:id="searchTF" prefHeight="24.0" prefWidth="175.0" promptText="Search" styleClass="transparent" stylesheets="@../../css/style.css">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="250.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <Text layoutX="49.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RentWheels">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Text>
+                  <Separator layoutX="16.0" layoutY="63.0" prefWidth="200.0" style="-fx-background-color: #FFBA83;" />
+               </children>
+            </Pane>
+            <Pane prefHeight="618.0" prefWidth="232.0">
+               <children>
+                  <JFXButton layoutX="16.0" layoutY="23.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba8592" style="-fx-background-color: #FFEBDB; -fx-background-radius: 15;" text="  Dashboard" textAlignment="CENTER" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../assets/img/bell.png" />
+                        <Image url="@../../assets/img/home.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="logoutIV" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutEvent" pickOnBounds="true" preserveRatio="true">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="16.0" layoutY="74.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Brands" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/brand-image.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="16.0" layoutY="124.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Cars" textAlignment="CENTER" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/car.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="16.0" layoutY="175.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="   Customers" textAlignment="CENTER" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/customer.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="16.0" layoutY="227.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Booking" textAlignment="CENTER" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/booking.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="16.0" layoutY="281.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Black List" textAlignment="CENTER" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/list.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="16.0" layoutY="335.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Statistics" textAlignment="CENTER" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="39.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/trend.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="16.0" layoutY="465.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#fa806a" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="LogOut" textAlignment="CENTER" textFill="RED">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="51.0" layoutY="476.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/img/logout.png" />
                      </image>
                   </ImageView>
-                  <VBox>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <children>
-                        <HBox alignment="CENTER" spacing="5.0">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../assets/img/profil.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../assets/img/down.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </HBox>
-                        <Text fx:id="usernametxt" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="73.52966284751892">
-                           <font>
-                              <Font name="System Bold" size="10.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
                </children>
-            </HBox>
-            <AnchorPane prefHeight="629.0" prefWidth="900.0">
-               <children>
-                  <StackPane prefHeight="627.2" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
+            </Pane>
          </children>
       </VBox>
+   </left>
+   <center>
+      <Pane prefHeight="562.0" prefWidth="918.0" maxWidth="-Infinity" maxHeight="-Infinity" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextField layoutX="152.0" layoutY="16.0" prefHeight="32.0" prefWidth="428.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;" text="              Search ..." unFocusColor="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXTextField>
+            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="172.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/search.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="785.0" layoutY="16.0" prefHeight="32.0" prefWidth="106.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;">
+               <children>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="13.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/profil.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="53.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+               </children>
+            </Pane>
+            <Pane layoutX="723.0" layoutY="17.0" prefHeight="32.0" prefWidth="38.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;">
+               <children>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/bell.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <StackPane layoutX="20.0" layoutY="65.0" prefHeight="500.0" prefWidth="878.0" maxWidth="-Infinity" maxHeight="-Infinity" style="-fx-background-color: #000000; -fx-background-radius: 13;" />
+         </children></Pane>
    </center>
 </BorderPane>

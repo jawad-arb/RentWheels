@@ -107,7 +107,7 @@ public class AddBrandController implements Initializable {
                 stage.close();
                 Stage stage1 = (Stage) btnSave.getScene().getWindow();
                 stage1.close();
-                StageManager.replace("fxml/Brand/brands.fxml", true, 1200, 700);
+                StageManager.replace("fxml/Brand/customers.fxml", true, 1200, 700);
 
             }
         } catch (Exception e) {

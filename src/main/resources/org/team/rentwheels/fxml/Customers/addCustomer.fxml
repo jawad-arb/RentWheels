@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.brand.AddBrandController">
+    <children>
+        <Button fx:id="btnCancel" layoutX="334.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnEventCancel" prefHeight="38.0" prefWidth="90.0" styleClass="button-red" stylesheets="@../../css/button.css" text="Cancel" />
+        <Button fx:id="btnSave" layoutX="175.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnEventSave" prefHeight="38.0" prefWidth="90.0" styleClass="button-green" stylesheets="@../../css/button.css" text="Save" />
+        <Label layoutX="13.0" layoutY="243.0" prefHeight="38.0" prefWidth="119.0" text="Foundation Year ">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="45.0" layoutY="179.0" text="Country">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="53.0" layoutY="111.0" text="Name">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtfName" layoutX="146.0" layoutY="106.0" prefHeight="25.0" prefWidth="172.0" />
+        <TextField fx:id="txtfCountry" layoutX="146.0" layoutY="174.0" prefHeight="25.0" prefWidth="172.0" />
+        <Label fx:id="lblSelectImage" layoutX="424.0" layoutY="230.0" prefHeight="26.0" prefWidth="141.0" text="select an Image">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+      <Label layoutX="224.0" layoutY="28.0" prefHeight="37.0" prefWidth="222.0" text="Add A Customer" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <TextField fx:id="txtfFoundationYear" layoutX="146.0" layoutY="249.0" prefHeight="25.0" prefWidth="172.0" />
+      <ImageView fx:id="ivCarImage" fitHeight="150.0" fitWidth="200.0" layoutX="395.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>

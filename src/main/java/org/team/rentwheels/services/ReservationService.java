@@ -64,7 +64,9 @@ public class ReservationService {
      * @return true--> carAvailable
      * @throws SQLException
      */
-    public boolean isCarAvailableForReservation(int carId, Date startDate, Date endDate) throws SQLException{
+    public boolean isCarAvailableForReservation(int carId,
+                                                Date startDate,
+                                                Date endDate) throws SQLException{
         CarService carService=new CarService();
         List<Reservation> reservationsForCar=getAllReservationByCarId(carId);
         for (Reservation reservation:reservationsForCar){
@@ -78,7 +80,7 @@ public class ReservationService {
          * @Return false
          * @if endDate for reservation comes after endDate For car insurance
          */
-        if (endDate.after(carInsuranceEndDate)) {
+        if (startDate.after(carInsuranceEndDate)) {
             return false;
         }
         return true;

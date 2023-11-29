@@ -9,7 +9,7 @@ import java.io.IOException;
 public class RentWheels extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        StageManager.init(stage,true);
+        StageManager.init(stage,false);
     }
 
     public static void main(String[] args) {

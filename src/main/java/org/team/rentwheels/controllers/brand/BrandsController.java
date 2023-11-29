@@ -124,7 +124,7 @@ public class BrandsController implements Initializable {
     }
 
     private void openAddBrandWindow() {
-        FXMLLoader fxmlLoader=new FXMLLoader(RentWheels.class.getResource("fxml/Brand/addBrand.fxml"));
+        FXMLLoader fxmlLoader=new FXMLLoader(RentWheels.class.getResource("fxml/Brand/addCustomer.fxml"));
         try {
             // Load the FXML and get the root node (the layout defined in the FXML)
             Parent root = fxmlLoader.load();
@@ -148,7 +148,7 @@ public class BrandsController implements Initializable {
         Brand selectedBrand = getSelectedBrand(); // Retrieve the selected brand from the table
 
         if (selectedBrand != null) {
-            FXMLLoader fxmlLoader = new FXMLLoader(RentWheels.class.getResource("fxml/Brand/updateBrand.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(RentWheels.class.getResource("fxml/Brand/updateCustomer.fxml"));
             try {
                 Parent root = fxmlLoader.load();
                 UpdateBrandController updateBrandController = fxmlLoader.getController();
