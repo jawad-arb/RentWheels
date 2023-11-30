@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="960.0" style="-fx-background-color: #FFFCF7;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.login.LoginController">
    <children>
-      <ImageView fitHeight="530.0" fitWidth="620.0" layoutX="370.0" pickOnBounds="true" preserveRatio="true" >
+      <ImageView fitHeight="530.0" fitWidth="620.0" layoutX="370.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/img/test.png" />
          </image>
@@ -38,6 +39,9 @@
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <Label fx:id="loginMessageLabel" layoutX="72.0" layoutY="38.0" prefHeight="22.0" prefWidth="296.0" textFill="RED" />
                </children>

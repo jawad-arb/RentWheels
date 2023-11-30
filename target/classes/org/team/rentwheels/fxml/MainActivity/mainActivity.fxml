@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1150.0" style="-fx-background-color: #F5F7F8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1150.0" style="-fx-background-color: #F5F7F8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.mainActivity.MainActivityController">
    <left>
-      <VBox prefHeight="700.0" prefWidth="232.0" maxWidth="-Infinity" maxHeight="-Infinity" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="232.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
@@ -33,7 +33,7 @@
             </Pane>
             <Pane prefHeight="618.0" prefWidth="232.0">
                <children>
-                  <JFXButton layoutX="16.0" layoutY="23.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba8592" style="-fx-background-color: #FFEBDB; -fx-background-radius: 15;" text="  Dashboard" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="dashboardBtn" layoutX="16.0" layoutY="23.0" onAction="#dashBoardAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba8592" style="-fx-background-color: #FFEBDB; -fx-background-radius: 15;" text="  Dashboard" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -46,7 +46,7 @@
                         <Image url="@../../assets/img/home.png" />
                      </image>
                   </ImageView>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="16.0" layoutY="74.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Brands" textFill="#151515">
+                  <JFXButton fx:id="brandBtn" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="74.0" onAction="#brandAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Brands" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -59,7 +59,7 @@
                         <Image url="@../../assets/img/brand-image.png" />
                      </image>
                   </ImageView>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="16.0" layoutY="124.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Cars" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="carBtn" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="124.0" onAction="#carAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Cars" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -72,7 +72,7 @@
                         <Image url="@../../assets/img/car.png" />
                      </image>
                   </ImageView>
-                  <JFXButton layoutX="16.0" layoutY="175.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="   Customers" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="customerBtn" layoutX="16.0" layoutY="175.0" onAction="#customerAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="   Customers" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -85,7 +85,7 @@
                         <Image url="@../../assets/img/customer.png" />
                      </image>
                   </ImageView>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="16.0" layoutY="227.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Booking" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="bookingBtn" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="227.0" onAction="#bookingAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="          Booking" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -98,7 +98,7 @@
                         <Image url="@../../assets/img/booking.png" />
                      </image>
                   </ImageView>
-                  <JFXButton layoutX="16.0" layoutY="281.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Black List" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="blackListBtn" layoutX="16.0" layoutY="281.0" onAction="#blackListAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Black List" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -111,7 +111,7 @@
                         <Image url="@../../assets/img/list.png" />
                      </image>
                   </ImageView>
-                  <JFXButton layoutX="16.0" layoutY="335.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Statistics" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="statBtn" layoutX="16.0" layoutY="335.0" onAction="#statAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Statistics" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -124,7 +124,7 @@
                         <Image url="@../../assets/img/trend.png" />
                      </image>
                   </ImageView>
-                  <JFXButton layoutX="16.0" layoutY="465.0" prefHeight="44.0" prefWidth="200.0" ripplerFill="#fa806a" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="LogOut" textAlignment="CENTER" textFill="RED">
+                  <JFXButton fx:id="logOutBtn" layoutX="16.0" layoutY="465.0" onAction="#logOutAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#fa806a" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="LogOut" textAlignment="CENTER" textFill="RED">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -143,7 +143,7 @@
       </VBox>
    </left>
    <center>
-      <Pane prefHeight="562.0" prefWidth="918.0" maxWidth="-Infinity" maxHeight="-Infinity" BorderPane.alignment="CENTER">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="562.0" prefWidth="918.0" BorderPane.alignment="CENTER">
          <children>
             <JFXTextField layoutX="152.0" layoutY="16.0" prefHeight="32.0" prefWidth="428.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;" text="              Search ..." unFocusColor="WHITE">
                <cursor>
@@ -154,14 +154,14 @@
                   <Image url="@../../assets/img/search.png" />
                </image>
             </ImageView>
-            <Pane layoutX="785.0" layoutY="16.0" prefHeight="32.0" prefWidth="106.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;">
+            <Pane layoutX="785.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="32.0" prefWidth="113.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;">
                <children>
                   <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="13.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/img/profil.png" />
                      </image>
                   </ImageView>
-                  <Text layoutX="53.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+                  <Text fx:id="usernametxt" layoutX="53.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
                </children>
             </Pane>
             <Pane layoutX="723.0" layoutY="17.0" prefHeight="32.0" prefWidth="38.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;">
@@ -173,7 +173,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <StackPane layoutX="20.0" layoutY="65.0" prefHeight="500.0" prefWidth="878.0" maxWidth="-Infinity" maxHeight="-Infinity" style="-fx-background-color: #000000; -fx-background-radius: 13;" />
+            <StackPane fx:id="container" layoutX="20.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="878.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;" />
          </children></Pane>
    </center>
 </BorderPane>
