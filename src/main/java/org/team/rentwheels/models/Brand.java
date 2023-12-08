@@ -7,7 +7,6 @@ public class Brand {
     private int foundationYear;
     private byte[] image;
 
-
     public Brand() {
     }
 

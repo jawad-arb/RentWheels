@@ -75,6 +75,7 @@ public class BrandsController implements Initializable {
         clName.setCellValueFactory(new PropertyValueFactory<>("brandName"));
         clCountry.setCellValueFactory(new PropertyValueFactory<>("countyOfMake"));
         clFoundationYear.setCellValueFactory(new PropertyValueFactory<>("foundationYear"));
+
         tableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         try {
             loadBrandData();
@@ -83,11 +84,7 @@ public class BrandsController implements Initializable {
         }
     }
 
-    private void loadBrandData() throws SQLException {
-        List<Brand> brandList= brandService.getAllBrands();
-        tableView.getItems().addAll(brandList);
 
-    }
 
     @FXML
     void addEvent(MouseEvent event) {
@@ -184,10 +181,8 @@ public class BrandsController implements Initializable {
 
         alert.showAndWait().ifPresent(buttonType -> {
             if (buttonType == buttonTypeYes) {
-                // User confirmed deletion
                 result[0] = true;
             } else {
-                // User cancelled the deletion
                 result[0] = false;
             }
         });
@@ -197,13 +192,16 @@ public class BrandsController implements Initializable {
 
     public Brand getSelectedBrand() {
         if (tableView != null && tableView.getSelectionModel().getSelectedItem() != null) {
-            System.out.println("test");
             return tableView.getSelectionModel().getSelectedItem();
         } else {
-            // Provide feedback or handle the case where no item is selected
-            System.out.println("No brand selected");
             return null;
         }
+    }
+
+    private void loadBrandData() throws SQLException {
+        List<Brand> brandList= brandService.getAllBrands();
+        tableView.getItems().addAll(brandList);
+
     }
 
 

@@ -27,13 +27,30 @@ public class MainActivityController implements Initializable {
     private StackPane container;
 
     @FXML
-    void blackListAct(ActionEvent event) {
+    void dashPaneAction(MouseEvent event) {
+        try{
+            load("Dashboard/dashboard.fxml");
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    void blackListAct(ActionEvent event) {
+        try{
+            load("BlackList/BlackList.fxml");
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void bookingAct(ActionEvent event) {
-
+        try{
+            load("Booking/");
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -48,12 +65,22 @@ public class MainActivityController implements Initializable {
 
     @FXML
     void carAct(ActionEvent event) {
+        try{
+            load("Cars/cars.fxml");
 
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void customerAct(ActionEvent event) {
+        try{
+            load("Customers/customers.fxml");
 
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -85,7 +112,6 @@ public class MainActivityController implements Initializable {
         }
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         currentUser = LoginController.getCurrentUser();
@@ -99,9 +125,6 @@ public class MainActivityController implements Initializable {
         }
 
     }
-
-
-
 
     @FXML
     void logoutEvent(MouseEvent event) throws IOException {

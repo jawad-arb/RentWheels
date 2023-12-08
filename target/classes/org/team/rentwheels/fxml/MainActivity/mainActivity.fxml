@@ -21,7 +21,7 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Pane prefHeight="132.0" prefWidth="232.0">
+            <Pane fx:id="dashPane" onMouseClicked="#dashPaneAction" prefHeight="132.0" prefWidth="232.0">
                <children>
                   <Text layoutX="49.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RentWheels">
                      <font>

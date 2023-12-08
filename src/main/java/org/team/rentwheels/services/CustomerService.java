@@ -1,5 +1,7 @@
 package org.team.rentwheels.services;
 
+import org.team.rentwheels.exceptions.CustomerAlreadyExistsException;
+import org.team.rentwheels.exceptions.CustomerNotExistsException;
 import org.team.rentwheels.models.Customer;
 import org.team.rentwheels.repositories.CustomerRepository;
 import org.team.rentwheels.repositories.implementations.CustomerRepositoryImpl;
@@ -22,7 +24,9 @@ public class CustomerService {
                             String lastName,
                             String email,
                             String phone,
-                            String address) throws SQLException {
+                            String address) throws SQLException, CustomerAlreadyExistsException {
+        if (customerAlreadyExists(email))
+            throw new CustomerAlreadyExistsException("Customer Already Exist");
         customerRepository.addCustomer(firstName,
                 lastName,
                 email,
@@ -30,16 +34,22 @@ public class CustomerService {
                 address);
     }
 
-    public void deleteCustomer(int id) throws SQLException {
+    public void deleteCustomer(int id) throws SQLException, CustomerNotExistsException {
+        if (!customerExists(id))
+            throw new CustomerNotExistsException("Customer not exists");
         customerRepository.deleteCustomer(id);
     }
 
     public void updateCustomer(int id,
-                               Customer updatedCustomer) throws SQLException {
+                               Customer updatedCustomer) throws SQLException, CustomerNotExistsException {
+        if (!customerExists(id))
+            throw new CustomerNotExistsException("Customer not exists");
         customerRepository.updateCustomer(id,updatedCustomer);
     }
 
-    public Customer getCustomerById(int id) throws SQLException {
+    public Customer getCustomerById(int id) throws SQLException, CustomerNotExistsException {
+        if (!customerExists(id))
+            throw new CustomerNotExistsException("Customer not exists");
         return customerRepository.getCustomerById(id);
     }
 
@@ -47,5 +57,11 @@ public class CustomerService {
         return customerRepository.getAllCustomers();
     }
 
+    public boolean customerAlreadyExists(String email) throws SQLException {
+        return this.customerRepository.doesCustomerExists(email);
+    }
+    public boolean customerExists(int id) throws SQLException {
+        return this.customerRepository.customerExists(id);
+    }
 
     }

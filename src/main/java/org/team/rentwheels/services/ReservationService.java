@@ -1,5 +1,8 @@
 package org.team.rentwheels.services;
 
+import org.team.rentwheels.exceptions.CarNotAvailableException;
+import org.team.rentwheels.exceptions.CustomerInBlackListException;
+import org.team.rentwheels.exceptions.ReservationNotFoundException;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.models.Reservation;
 import org.team.rentwheels.repositories.ReservationRepository;
@@ -27,19 +30,21 @@ public class ReservationService {
      * @throws SQLException
      */
 
-    void addReservation(Reservation reservation) throws SQLException{
+    void addReservation(Reservation reservation) throws SQLException, CarNotAvailableException, CustomerInBlackListException {
         if(!isCarAvailableForReservation(reservation.getCarId(),reservation.getStartDate(),reservation.getEndDate()))
-            throw new RuntimeException("Car is not available for the requested period");
+            throw new CarNotAvailableException("Car is not available for the requested period");
+        if (isCustomerExistsInTheBlackList(reservation.getCustomerId()))
+            throw new CustomerInBlackListException("the Customer exist in blackList");
         if(getNumberOfReservationsByCustomerId(reservation.getCustomerId())>=3){
             double discountedCost = applyPromotion(reservation, discount);
             reservation.setTotalCost(discountedCost);
         }
         reservationRepository.addReservation(reservation);
     }
-    void deleteReservation(int reservationId) throws SQLException,RuntimeException{
+    void deleteReservation(int reservationId) throws SQLException, RuntimeException, ReservationNotFoundException {
         Reservation existingReservation=getReservationById(reservationId);
         if (existingReservation==null)
-            throw new RuntimeException("Reservation Not Found");
+            throw new ReservationNotFoundException("Reservation Not Found");
         this.reservationRepository.deleteReservation(reservationId);
     }
 
@@ -50,10 +55,10 @@ public class ReservationService {
      * @throws SQLException
      * @Check if the reservation Exists
      */
-    void updateReservation(int reservationId,Reservation updatedReservation) throws SQLException{
+    void updateReservation(int reservationId,Reservation updatedReservation) throws SQLException, ReservationNotFoundException {
         Reservation existingReservation=getReservationById(reservationId);
         if (existingReservation==null)
-            throw new RuntimeException("Reservation Not Found");
+            throw new ReservationNotFoundException("Reservation Not Found");
         this.reservationRepository.updateReservation(reservationId,updatedReservation);
     }
     /**
@@ -85,6 +90,11 @@ public class ReservationService {
         }
         return true;
     }
+    public boolean isCustomerExistsInTheBlackList(int custumerId) throws SQLException {
+        BlackListService blackListService=new BlackListService();
+        return blackListService.checkIfCustomerExistInBlackList(custumerId);
+    }
+
     Reservation getReservationById(int reservationId) throws SQLException{
         return this.reservationRepository.getReservationById(reservationId);
     }

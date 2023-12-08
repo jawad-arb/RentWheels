@@ -32,7 +32,7 @@ public class BlackListService {
     BlackList getItemFromBlackListWithId(int entry_id) throws SQLException{
         return this.blackListRepository.getItemFromBlackListWithId(entry_id);
     }
-    boolean checkIfCustomerExistInBlackList(int customer_id) throws SQLException{
+    public boolean  checkIfCustomerExistInBlackList(int customer_id) throws SQLException{
         return this.blackListRepository.checkIfCustomerExistInBlackList(customer_id);
     }
     List<BlackList> getAllItemsInBlackList() throws SQLException{

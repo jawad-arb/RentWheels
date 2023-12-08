@@ -90,6 +90,29 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         return customers;
     }
 
+    @Override
+    public boolean doesCustomerExists(String email) throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(DOES_CUSTOMER_EXISTS);
+        ps.setString(1,email);
+        ResultSet rs=ps.executeQuery();
+        if (rs.next()) {
+            int count = rs.getInt(1);
+            return count > 0;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean customerExists(int id) throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(CUSTOMER_EXISTS_BY_ID);
+        ps.setInt(1,id);
+        ResultSet rs=ps.executeQuery();
+        if (rs.next()) {
+            int count = rs.getInt(1);
+            return count > 0;
+        }
+        return false;
+    }
 
 
 }

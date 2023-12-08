@@ -16,4 +16,7 @@ public interface CustomerRepository {
     void updateCustomer(int id, Customer updatedCustomer) throws SQLException;
     Customer getCustomerById(int id) throws SQLException;
     List<Customer> getAllCustomers() throws SQLException;
+    public boolean doesCustomerExists(String email) throws SQLException;
+    public boolean customerExists(int id) throws SQLException;
+
 }
