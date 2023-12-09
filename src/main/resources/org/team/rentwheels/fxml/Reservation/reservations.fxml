@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="878.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.reservation.ReservationsController">
+   <children>
+       <TextField fx:id="searchBar" layoutX="72.0" layoutY="16.0" prefHeight="40.0" prefWidth="350.0" promptText="       Search" AnchorPane.leftAnchor="72.0" AnchorPane.topAnchor="16.0">
+           <padding>
+               <Insets left="33.0" />
+           </padding>
+       </TextField>
+       <TableView fx:id="tableView" fixedCellSize="0.0" layoutY="72.0" prefHeight="428.0" prefWidth="878.0" stylesheets="@../../css/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+           <columns>
+               <TableColumn fx:id="clCarName" prefWidth="140.0" text="Car" />
+               <TableColumn fx:id="clCustomerName" prefWidth="140.0" text="Customer" />
+               <TableColumn fx:id="clDateReservation" prefWidth="200.0" text="Reservation Date" />
+               <TableColumn fx:id="clStartDate" prefWidth="200.0" text="Reservation Start Date" />
+               <TableColumn fx:id="clEndDate" prefWidth="200.0" text="Reservation End Date" />
+           </columns>
+       </TableView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="87.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/img/search.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="add_Reservation" layoutX="700.0" layoutY="18.0" onMouseClicked="#addReservationEvent" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #FFBA83; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/add.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane fx:id="update_Reservation" layoutX="747.0" layoutY="18.0" onMouseClicked="#updateReservationEvent" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #32CD32; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/refresh%20(1).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="delete_reservation" layoutX="793.0" layoutY="18.0" onMouseClicked="#deleteReservationEvent" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #FF0000; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/remove.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

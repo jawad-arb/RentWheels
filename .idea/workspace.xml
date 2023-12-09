@@ -5,38 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d304b1f-7aee-45fb-9850-e454a275aa2f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/CarNotAvailableException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/CustomerAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/CustomerInBlackListException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/CustomerNotExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/ReservationNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/team/rentwheels/repositories/implementations/CustomerRepositoryImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8572c042-7415-41c5-841f-d8e9017d4794.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8572c042-7415-41c5-841f-d8e9017d4794.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/AddReservationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/ReservationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/UpdateReservationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/BrandNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/ReservationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img/refresh (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img/remove.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/css/table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/addReservation.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/reservations.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/updateReservation.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/team/rentwheels/repositories/implementations/BrandRepositoryImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/team/rentwheels/services/BrandServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/brand/BrandsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/brand/BrandsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/mainActivity/MainActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/mainActivity/MainActivityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CustomerQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CustomerQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/BlackListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/BlackListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/BrandQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/BrandQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/ReservationQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/ReservationQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/BrandRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/BrandRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/ReservationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/BrandService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/utils/StageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/utils/StageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/MainActivity/mainActivity.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/MainActivity/mainActivity.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Brand/brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Brand/brands.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/brand/BrandsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/brand/BrandsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/mainActivity/MainActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/mainActivity/MainActivityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/MainActivity/mainActivity.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/MainActivity/mainActivity.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Brand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Brand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/CustomerQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/CustomerQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/CustomerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BlackListService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BlackListService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/Brand/brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/Brand/brands.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/BrandQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/BrandQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/ReservationQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/ReservationQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/BrandRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/BrandRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/ReservationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/ReservationRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BrandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BrandService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/CustomerService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/ReservationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/utils/StageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/utils/StageManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +57,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="CSS File" />
         <option value="FxmlFile" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -75,40 +85,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.RentWheels.executor": "Run",
-    "JUnit.BlackListRepositoryTest.checkIfCustomerExistInBlackList.executor": "Run",
-    "JUnit.CustomerRepositoryImplTest.customerNotExists.executor": "Run",
-    "JUnit.CustomerRepositoryImplTest.doesCustomerExists.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/jawad/jfoenix-17-0.1.1.jar",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.RentWheels.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BlackListRepositoryTest.checkIfCustomerExistInBlackList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BrandRepositoryImplTest.getBrandByName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BrandServiceTest.getBrandByName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerRepositoryImplTest.customerNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerRepositoryImplTest.doesCustomerExists.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jawad/jfoenix-17-0.1.1.jar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.team.rentwheels.repositories.implementations" />
@@ -130,12 +142,12 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.team.rentwheels.services" />
       <recent name="org.team.rentwheels.repositories.implementations" />
       <recent name="org.team.rentwheels.repositories" />
-      <recent name="org.team.rentwheels.services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerRepositoryImplTest.customerNotExists">
+  <component name="RunManager" selected="Application.RentWheels">
     <configuration name="RentWheels" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.RentWheels" />
       <module name="RentWheels" />
@@ -154,23 +166,7 @@
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
-    <configuration name="BlackListRepositoryTest.checkIfCustomerExistInBlackList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RentWheels" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.team.rentwheels.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.BlackListRepositoryTest" />
-      <option name="METHOD_NAME" value="checkIfCustomerExistInBlackList" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CarRepositoryImplTest.updateCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BrandRepositoryImplTest.getBrandByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentWheels" />
       <extension name="coverage">
         <pattern>
@@ -179,8 +175,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.team.rentwheels.repositories.implementations" />
-      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.CarRepositoryImplTest" />
-      <option name="METHOD_NAME" value="updateCar" />
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.repositories.implementations.BrandRepositoryImplTest" />
+      <option name="METHOD_NAME" value="getBrandByName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BrandServiceTest.getBrandByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RentWheels" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.team.rentwheels.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.team.rentwheels.services" />
+      <option name="MAIN_CLASS_NAME" value="org.team.rentwheels.services.BrandServiceTest" />
+      <option name="METHOD_NAME" value="getBrandByName" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -220,11 +232,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RentWheels" />
+        <item itemvalue="JUnit.BrandServiceTest.getBrandByName" />
+        <item itemvalue="JUnit.BrandRepositoryImplTest.getBrandByName" />
         <item itemvalue="JUnit.CustomerRepositoryImplTest.customerNotExists" />
         <item itemvalue="JUnit.CustomerRepositoryImplTest.doesCustomerExists" />
-        <item itemvalue="JUnit.BlackListRepositoryTest.checkIfCustomerExistInBlackList" />
-        <item itemvalue="Application.RentWheels" />
-        <item itemvalue="JUnit.CarRepositoryImplTest.updateCar" />
       </list>
     </recent_temporary>
   </component>
@@ -434,6 +446,18 @@
       <workItem from="1701854499451" duration="253000" />
       <workItem from="1701856467697" duration="746000" />
       <workItem from="1702027810520" duration="5741000" />
+      <workItem from="1702033566600" duration="229000" />
+      <workItem from="1702034672819" duration="30000" />
+      <workItem from="1702035116392" duration="21000" />
+      <workItem from="1702055396449" duration="2551000" />
+      <workItem from="1702067256691" duration="230000" />
+      <workItem from="1702068441715" duration="2204000" />
+      <workItem from="1702110603400" duration="1891000" />
+      <workItem from="1702113640301" duration="422000" />
+      <workItem from="1702114073958" duration="3479000" />
+      <workItem from="1702125857820" duration="4618000" />
+      <workItem from="1702132422585" duration="1615000" />
+      <workItem from="1702135868664" duration="1218000" />
     </task>
     <servers />
   </component>

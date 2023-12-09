@@ -29,20 +29,19 @@ public class BrandRepositoryImpl implements BrandRepository {
     }
 
     @Override
-    public List<Brand> getBrandByName(String brandName) throws SQLException {
-        List<Brand> brandList = new ArrayList<>();
+    public Brand getBrandByName(String brandName) throws SQLException {
         PreparedStatement ps = dbOperations.setConnection(GET_BRAND_BY_NAME);
         ps.setString(1, brandName);
         ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            Brand brand = new Brand();
-            brand.setId(rs.getInt("brand_id"));
-            brand.setBrandName(rs.getString("name"));
-            brand.setCountyOfMake(rs.getString("country"));
-            brand.setImage(rs.getBytes("image_data"));
-            brandList.add(brand);
-        }
-        return brandList;
+        if (!rs.next())
+            return null;
+        Brand brand = new Brand();
+        brand.setId(rs.getInt("brand_id"));
+        brand.setBrandName(rs.getString("name"));
+        brand.setCountyOfMake(rs.getString("country"));
+        brand.setFoundationYear(rs.getInt("foundation_year"));
+        brand.setImage(rs.getBytes("image_data"));
+        return brand;
     }
 
     @Override
@@ -84,34 +83,16 @@ public class BrandRepositoryImpl implements BrandRepository {
         }
     }
 
-
-
-//    public static void main(String[] args) throws SQLException {
-//        BrandRepository brandRepository = new BrandRepositoryImpl();
-//        List<Brand> brandList = brandRepository.getAllBrands();
-//        if (brandList.isEmpty()) {
-//            System.out.println("No brands found with the name: ");
-//        } else {
-//            System.out.println("Brands with the name :");
-//            for (Brand brand : brandList) {
-//                System.out.println("Brand ID: " + brand.getId());
-//                System.out.println("Brand Name: " + brand.getBrandName());
-//                System.out.println("Country of Make: " + brand.getCountyOfMake());
-//             =  // Print other attributes as needed
-//            }
-//        }
-//    }
-
-//    public static void main(String[] args) throws SQLException {
-//        BrandRepository brandRepository=new BrandRepositoryImpl();
-//        Brand updatedBrand=new Brand("dacia","UK",2020,null);
-//        brandRepository.updateBrand(25,updatedBrand);
-//    }
-
-//
-
-//    }
-
+    @Override
+    public boolean isBrandExists(String name) throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(CHECK_IF_BRAND_EXISTS);
+        ps.setString(1,name);
+        ResultSet rs=ps.executeQuery();
+        if(!rs.next())
+            return false;
+        int result=rs.getInt(1);
+        return result>0;
+    }
 
 
 }

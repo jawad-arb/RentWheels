@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -15,7 +16,9 @@ import org.team.rentwheels.RentWheels;
 import org.team.rentwheels.models.Brand;
 import org.team.rentwheels.services.BrandService;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.lang.reflect.InaccessibleObjectException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -75,8 +78,30 @@ public class BrandsController implements Initializable {
         clName.setCellValueFactory(new PropertyValueFactory<>("brandName"));
         clCountry.setCellValueFactory(new PropertyValueFactory<>("countyOfMake"));
         clFoundationYear.setCellValueFactory(new PropertyValueFactory<>("foundationYear"));
-
+        clImage.setCellValueFactory(new PropertyValueFactory<>("image"));
         tableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        clImage.setCellFactory(param -> new TableCell<Brand, byte[]>() {
+            private final ImageView imageView = new ImageView();
+            @Override
+            protected void updateItem(byte[] imageData, boolean empty) {
+                super.updateItem(imageData, empty);
+
+                if (empty || imageData == null) {
+                    setGraphic(null);
+                } else {
+                    // Convert the byte array to an Image
+                    Image image = new Image(new ByteArrayInputStream(imageData));
+
+                    // Resize the image if necessary
+                    imageView.setFitWidth(100); // Set your desired width
+                    imageView.setFitHeight(100); // Set your desired height
+
+                    // Set the image in the ImageView
+                    imageView.setImage(image);
+                    setGraphic(imageView);
+                }
+            }
+        });
         try {
             loadBrandData();
         } catch (SQLException e) {

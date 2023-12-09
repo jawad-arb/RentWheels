@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.reservation.AddReservationController">
+   <children>
+      <Text layoutX="278.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEst" />
+   </children>
+</AnchorPane>

@@ -47,7 +47,7 @@ public class MainActivityController implements Initializable {
     @FXML
     void bookingAct(ActionEvent event) {
         try{
-            load("Booking/");
+            load("Reservation/reservations.fxml");
         } catch (IOException e){
             e.printStackTrace();
         }

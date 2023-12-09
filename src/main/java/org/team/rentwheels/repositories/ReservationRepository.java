@@ -1,6 +1,7 @@
 package org.team.rentwheels.repositories;
 
 import org.team.rentwheels.models.Reservation;
+import org.team.rentwheels.models.ReservationDTO;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -23,4 +24,5 @@ public interface ReservationRepository {
     int getNumberOfReservationsByCustomerId(int customerId) throws SQLException;
     int getTotalNumberOfReservations() throws SQLException;
     double calculateTotalRevenueFromReservations() throws SQLException;
+    List<ReservationDTO> getAllConfirmedReservation() throws SQLException;
 }

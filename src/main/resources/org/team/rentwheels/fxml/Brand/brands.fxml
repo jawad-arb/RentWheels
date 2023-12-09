@@ -17,7 +17,7 @@
                 <Insets left="33.0" />
             </padding>
         </TextField>
-        <TableView fx:id="tableView" fixedCellSize="0.0" layoutY="78.0" prefHeight="627.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+        <TableView fx:id="tableView" fixedCellSize="0.0" layoutY="78.0" prefHeight="627.0" prefWidth="900.0" stylesheets="@../../css/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
             <columns>
                 <TableColumn fx:id="clId" prefWidth="129.0" text="id" />
                 <TableColumn fx:id="clName" prefWidth="105.0" text="Brand Name" />

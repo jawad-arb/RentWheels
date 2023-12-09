@@ -10,4 +10,5 @@ public class BrandQuery {
     public static final String UPDATE_BRAND_WHERE_ID="UPDATE Brands SET name= ? ,country= ?, foundation_year= ? , image_data = ? WHERE brand_id= ? ";
 
 
+    public static final String CHECK_IF_BRAND_EXISTS = "SELECT COUNT(*) FROM Brands WHERE name=? ";
 }

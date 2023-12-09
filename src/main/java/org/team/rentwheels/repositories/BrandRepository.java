@@ -10,9 +10,10 @@ import java.util.List;
 
 public interface BrandRepository {
     void addBrand(String brandName, String countyOfMake, int foundationYear, byte[] imageByte) throws SQLException, IOException;
-    List<Brand> getBrandByName(String brandName) throws SQLException;
+    Brand getBrandByName(String brandName) throws SQLException;
     List<Brand> getAllBrands() throws SQLException;
     void DeleteBrandById(int id) throws SQLException;
     void updateBrand(int id,Brand updatedBrand) throws SQLException;
+    boolean isBrandExists(String name) throws SQLException;
 
 }

@@ -1,5 +1,6 @@
 package org.team.rentwheels.services;
 
+import org.team.rentwheels.exceptions.BrandNotFoundException;
 import org.team.rentwheels.models.Brand;
 import org.team.rentwheels.repositories.BrandRepository;
 import org.team.rentwheels.repositories.implementations.BrandRepositoryImpl;
@@ -29,12 +30,19 @@ public class BrandService {
         return brandRepository.getAllBrands();
     }
 
-    public void updateBrand(int id , Brand updatedBrand) throws SQLException {
+    public void updateBrand(int id , Brand updatedBrand) throws SQLException, BrandNotFoundException {
+        if(!brandRepository.isBrandExists(updatedBrand.getBrandName()))
+            throw new BrandNotFoundException("Brand not found");
         this.brandRepository.updateBrand(id,updatedBrand);
     }
 
     public void deleteBrand(int id) throws SQLException {
         this.brandRepository.DeleteBrandById(id);
+    }
+    public Brand getBrandByName(String name) throws SQLException, BrandNotFoundException {
+        if(!brandRepository.isBrandExists(name))
+            throw new BrandNotFoundException("Brand not found");
+        return brandRepository.getBrandByName(name);
     }
 
 

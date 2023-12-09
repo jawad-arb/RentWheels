@@ -5,6 +5,7 @@ import org.team.rentwheels.exceptions.CustomerInBlackListException;
 import org.team.rentwheels.exceptions.ReservationNotFoundException;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.models.Reservation;
+import org.team.rentwheels.models.ReservationDTO;
 import org.team.rentwheels.repositories.ReservationRepository;
 import org.team.rentwheels.repositories.implementations.ReservationRepositoryImpl;
 
@@ -31,11 +32,11 @@ public class ReservationService {
      */
 
     void addReservation(Reservation reservation) throws SQLException, CarNotAvailableException, CustomerInBlackListException {
-        if(!isCarAvailableForReservation(reservation.getCarId(),reservation.getStartDate(),reservation.getEndDate()))
+        if(!isCarAvailableForReservation(reservation.getCar().getCarId(),reservation.getStartDate(),reservation.getEndDate()))
             throw new CarNotAvailableException("Car is not available for the requested period");
-        if (isCustomerExistsInTheBlackList(reservation.getCustomerId()))
-            throw new CustomerInBlackListException("the Customer exist in blackList");
-        if(getNumberOfReservationsByCustomerId(reservation.getCustomerId())>=3){
+        if (isCustomerExistsInTheBlackList(reservation.getCustomer().getId()))
+            throw new CustomerInBlackListException("the Customer exists in blackList");
+        if(getNumberOfReservationsByCustomerId(reservation.getCustomer().getId())>=3){
             double discountedCost = applyPromotion(reservation, discount);
             reservation.setTotalCost(discountedCost);
         }
@@ -145,6 +146,10 @@ public class ReservationService {
         double discountAmount = (discountPercentage / 100) * reservationTotal;
         double updatedTotalCost = reservationTotal - discountAmount;
         return updatedTotalCost;
+    }
+
+    public List<ReservationDTO> getAllConfirmedReservation() throws SQLException {
+        return reservationRepository.getAllConfirmedReservation();
     }
 
 

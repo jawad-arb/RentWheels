@@ -4,28 +4,28 @@ import java.sql.Date;
 
 public class Reservation {
     private int id;
-    private int carId;
-    private int customerId;
+    private Car car;
+    private Customer customer;
     private Date reservationDate;
     private Date startDate;
     private Date endDate;
     private Double totalCost;
     private String status;
-    public Reservation(){
 
+    public Reservation() {
     }
 
     public Reservation(int id,
-                       int carId,
-                       int customerId,
+                       Car car,
+                       Customer customer,
                        Date reservationDate,
                        Date startDate,
                        Date endDate,
                        Double totalCost,
                        String status) {
         this.id = id;
-        this.carId = carId;
-        this.customerId = customerId;
+        this.car = car;
+        this.customer = customer;
         this.reservationDate = reservationDate;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -33,15 +33,15 @@ public class Reservation {
         this.status = status;
     }
 
-    public Reservation(int carId,
-                       int customerId,
+    public Reservation(Car car,
+                       Customer customer,
                        Date reservationDate,
                        Date startDate,
                        Date endDate,
                        Double totalCost,
                        String status) {
-        this.carId = carId;
-        this.customerId = customerId;
+        this.car = car;
+        this.customer = customer;
         this.reservationDate = reservationDate;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -57,20 +57,20 @@ public class Reservation {
         this.id = id;
     }
 
-    public int getCarId() {
-        return carId;
+    public Car getCar() {
+        return car;
     }
 
-    public void setCarId(int carId) {
-        this.carId = carId;
+    public void setCar(Car car) {
+        this.car = car;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Date getReservationDate() {
@@ -112,19 +112,4 @@ public class Reservation {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", carId=" + carId +
-                ", customerId=" + customerId +
-                ", reservationDate=" + reservationDate +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", totalCost=" + totalCost +
-                ", status='" + status + '\'' +
-                '}';
-    }
-
 }
