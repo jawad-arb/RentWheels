@@ -26,6 +26,6 @@ public interface ReservationRepository {
     double calculateTotalRevenueFromReservations() throws SQLException;
     List<ReservationDTO> getAllConfirmedReservation() throws SQLException;
     void updateCarAvailability(int carId, Date startDate, Date endDate, boolean available) throws SQLException;
-
+    double calculateTotaleCost(Reservation reservation) throws SQLException;
 
     }

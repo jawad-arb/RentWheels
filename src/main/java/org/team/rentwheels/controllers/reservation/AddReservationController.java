@@ -8,10 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.team.rentwheels.exceptions.CarNotAvailableException;
-import org.team.rentwheels.exceptions.CustomerInBlackListException;
-import org.team.rentwheels.exceptions.NoCarSelectedException;
-import org.team.rentwheels.exceptions.NoCustomerSelectedException;
+import org.team.rentwheels.exceptions.*;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.models.Customer;
 import org.team.rentwheels.models.Reservation;
@@ -87,22 +84,18 @@ public class AddReservationController implements Initializable {
                     setDisable(empty || date.isBefore(LocalDate.now()));
                 }
             });
-
             endDatePicker.setDayCellFactory(picker -> new DateCell() {
                 @Override
                 public void updateItem(LocalDate date, boolean empty) {
                     super.updateItem(date, empty);
 
-                    // Disable previous dates
-                    setDisable(empty || date.isBefore(LocalDate.now()));
+                    setDisable(empty || date.isBefore(startDate.toLocalDate()));
                 }
             });
             reservationDatePicker.setDayCellFactory(picker -> new DateCell() {
                 @Override
                 public void updateItem(LocalDate date, boolean empty) {
                     super.updateItem(date, empty);
-
-                    // Disable previous dates
                     setDisable(empty || date.isBefore(LocalDate.now()));
                 }
             });
@@ -130,7 +123,6 @@ public class AddReservationController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     /**
@@ -170,22 +162,53 @@ public class AddReservationController implements Initializable {
 
 
     @FXML
-    void saveAction(ActionEvent event) throws CarNotAvailableException, SQLException, CustomerInBlackListException {
-        if (advancedPriceTF.getText() != null) {
-            try {
-                double advPrice = Double.parseDouble(advancedPriceTF.getText());
-                Reservation reservation = new Reservation(new Car(carId), new Customer(customerId), reservationDate, startDate, endDate, 100.0, advPrice, "Confirmed");
-                reservationService.addReservation(reservation);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
+    void saveAction(ActionEvent event) throws CarNotAvailableException, SQLException, CustomerInBlackListException, NoCarSelectedException, NoFieldSelectedException {
+        try {
+            if (reservationDatePicker.getValue() == null || startDatePicker.getValue() == null || endDatePicker.getValue() == null) {
+                throw new NoFieldSelectedException("Please select all required dates.");
             }
-        } else {
-            throw new RuntimeException("test");
-        }
-
+            if (advancedPriceTF.getText().isEmpty() || carModelCombo.getSelectionModel().getSelectedItem() == null || customerCombo.getSelectionModel().getSelectedItem() == null ) {
+                throw new NoFieldSelectedException("Please select all required fields.");
+            }
+            double advPrice = Double.parseDouble(advancedPriceTF.getText());
+            Reservation reservation = new Reservation(new Car(carId), new Customer(customerId), reservationDate, startDate, endDate, 100.0, advPrice, "Confirmed");
+            reservationService.addReservation(reservation);
+            succesAlert();
+            }catch (NumberFormatException e) {
+                e.printStackTrace();
+            }catch (CustomerInBlackListException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Customer Blacklisted");
+                alert.setHeaderText("The customer cannot be added to a reservation.");
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }catch (CarNotAvailableException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Reservation Error");
+                alert.setContentText("The car is not available for the selected dates.");
+                alert.showAndWait();
+            } catch (NoFieldSelectedException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Missing Information");
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }
     }
 
 
+
+    void succesAlert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Reservation Success");
+        alert.setContentText("Car reserved successfully!");
+        alert.showAndWait();
+    }
+    void errorAlert(String title,String content){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
 
 
 

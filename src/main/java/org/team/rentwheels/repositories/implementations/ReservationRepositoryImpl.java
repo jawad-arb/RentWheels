@@ -178,15 +178,11 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     public void updateCarAvailability(int carId, Date startDate, Date endDate, boolean available) throws SQLException {
-        // Convert system date to java.sql.Date
         java.util.Date systemDate =  java.util.Date.from(Instant.now());
         java.sql.Date sqlSystemDate = new java.sql.Date(systemDate.getTime());
-
-        // Check if system date is already past the reservation start date
         if (sqlSystemDate.after(startDate)) {
             available = false; // Set availability to false if date is past
         }
-
         try {
             // Prepare statements
             PreparedStatement updateStatement = dbOperations.setConnection(
@@ -217,6 +213,22 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         }
     }
 
-
-
+    /**
+     * @param
+     * @param
+     * @param
+     * @return
+     * @Method (carPrice * NbrDays)-advancedPrice
+     */
+    @Override
+    public double calculateTotaleCost(Reservation reservation) throws SQLException {
+        double totalCost = 0.0;
+        PreparedStatement ps=dbOperations.setConnection("SELECT r.*, c.price, DATEDIFF(r.end_date, r.start_date) AS NbrDays, (c.price * NbrDays) - r.advanced_price AS total_cost FROM Reservations r INNER JOIN Cars c ON r.car_id = c.car_id WHERE r.reservation_id = ?");
+        ps.setInt(1, reservation.getId());
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            totalCost = rs.getDouble("total_cost");
+        }
+        return totalCost;
+    }
 }

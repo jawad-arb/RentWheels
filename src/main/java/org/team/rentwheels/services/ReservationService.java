@@ -155,11 +155,12 @@ public class ReservationService {
     public List<ReservationDTO> getAllConfirmedReservation() throws SQLException {
         return reservationRepository.getAllConfirmedReservation();
     }
-
-
-    /**
-     * @Addition
-     */
+    public double calculateTotaleCost(Reservation reservation) throws SQLException {
+        return reservationRepository.calculateTotaleCost(reservation);
+    }
+        /**
+         * @Addition
+         */
     public void updateCarAvailability(int carId, Date startDate, Date endDate, boolean available) throws SQLException {
         reservationRepository.updateCarAvailability(carId,startDate,endDate,available);
     }
