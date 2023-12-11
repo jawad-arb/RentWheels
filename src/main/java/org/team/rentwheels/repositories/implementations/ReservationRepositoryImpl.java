@@ -1,5 +1,6 @@
 package org.team.rentwheels.repositories.implementations;
 
+import org.team.rentwheels.exceptions.CarAlreadyReservedException;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.models.Customer;
 import org.team.rentwheels.models.Reservation;
@@ -7,9 +8,8 @@ import org.team.rentwheels.models.ReservationDTO;
 import org.team.rentwheels.repositories.ReservationRepository;
 import org.team.rentwheels.utils.DatabaseOperations;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +31,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         ps.setDate(5,reservation.getEndDate());
         ps.setDouble(6,reservation.getTotalCost());
         ps.setString(7,reservation.getStatus());
+        ps.setDouble(8,reservation.getAdvancedPrice());
         ps.executeUpdate();
     }
 
@@ -51,7 +52,8 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         ps.setDate(5,updatedReservation.getEndDate());
         ps.setDouble(6,updatedReservation.getTotalCost());
         ps.setString(7,updatedReservation.getStatus());
-        ps.setInt(8,reservationId);
+        ps.setDouble(8,updatedReservation.getAdvancedPrice());
+        ps.setInt(9,reservationId);
         ps.executeUpdate();
     }
 
@@ -72,6 +74,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
             reservation.setEndDate(rs.getDate("end_date"));
             reservation.setTotalCost(rs.getDouble("total_cost"));
             reservation.setStatus(rs.getString("status"));
+            reservation.setAdvancedPrice(rs.getDouble("advanced_price"));
         }
         return reservation;
     }
@@ -94,6 +97,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
             reservation.setEndDate(rs.getDate("end_date"));
             reservation.setTotalCost(rs.getDouble("total_cost"));
             reservation.setStatus(rs.getString("status"));
+            reservation.setAdvancedPrice(rs.getDouble("advanced_price"));
             reservations.add(reservation);
         }
         return reservations;
@@ -117,6 +121,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
             reservation.setEndDate(rs.getDate("end_date"));
             reservation.setTotalCost(rs.getDouble("total_cost"));
             reservation.setStatus(rs.getString("status"));
+            reservation.setAdvancedPrice(rs.getDouble("advanced_price"));
             reservations.add(reservation);
         }
         return reservations;
@@ -171,6 +176,47 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         }
         return reservationDTOS;
     }
+
+    public void updateCarAvailability(int carId, Date startDate, Date endDate, boolean available) throws SQLException {
+        // Convert system date to java.sql.Date
+        java.util.Date systemDate =  java.util.Date.from(Instant.now());
+        java.sql.Date sqlSystemDate = new java.sql.Date(systemDate.getTime());
+
+        // Check if system date is already past the reservation start date
+        if (sqlSystemDate.after(startDate)) {
+            available = false; // Set availability to false if date is past
+        }
+
+        try {
+            // Prepare statements
+            PreparedStatement updateStatement = dbOperations.setConnection(
+                    "UPDATE Cars SET availability = ? WHERE car_id = ?"
+            );
+            PreparedStatement checkExistingReservationsStatement = dbOperations.setConnection(
+                    "SELECT COUNT(*) FROM Reservations WHERE car_id = ? AND ((start_date BETWEEN ? AND ?) OR (end_date BETWEEN ? AND ?))"
+            );
+
+            // Update available flag
+            updateStatement.setBoolean(1, available);
+            updateStatement.setInt(2, carId);
+            updateStatement.executeUpdate();
+
+            // Check for existing reservations
+            checkExistingReservationsStatement.setInt(1, carId);
+            checkExistingReservationsStatement.setDate(2, new java.sql.Date(startDate.getTime()));
+            checkExistingReservationsStatement.setDate(3, new java.sql.Date(endDate.getTime()));
+            checkExistingReservationsStatement.setDate(4, new java.sql.Date(startDate.getTime()));
+            checkExistingReservationsStatement.setDate(5, new java.sql.Date(endDate.getTime()));
+
+            ResultSet resultSet = checkExistingReservationsStatement.executeQuery();
+            if (resultSet.next() && resultSet.getInt(1) > 0) {
+                throw new CarAlreadyReservedException("Car already has reservations during the specified period.");
+            }
+        } catch (CarAlreadyReservedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
 }

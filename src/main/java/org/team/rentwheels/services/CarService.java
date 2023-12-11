@@ -1,5 +1,6 @@
 package org.team.rentwheels.services;
 
+import javafx.collections.ObservableList;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.repositories.CarRepository;
 import org.team.rentwheels.repositories.implementations.CarRepositoryImpl;
@@ -32,5 +33,12 @@ public class CarService {
     }
     public List<Car> getAllCars() throws SQLException {
         return this.carRepository.getAllCars();
+    }
+    public ObservableList getAllAvailableCars() throws SQLException {
+        return this.carRepository.getAllAvailableCars();
+    }
+
+    public int carIdByModel(String model) throws SQLException {
+        return this.carRepository.carIdByModel(model);
     }
 }

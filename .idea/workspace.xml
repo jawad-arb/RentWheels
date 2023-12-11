@@ -5,46 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d304b1f-7aee-45fb-9850-e454a275aa2f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/AddReservationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/ReservationsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/UpdateReservationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/BrandNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/ReservationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img/refresh (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/assets/img/remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/css/table.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/addReservation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/reservations.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/updateReservation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/team/rentwheels/repositories/implementations/BrandRepositoryImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/team/rentwheels/services/BrandServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/CarAlreadyReservedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/NoCarSelectedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/exceptions/NoCustomerSelectedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/utils/CarNameConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/utils/CustomerNameConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/utils/ReservationStartDateValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/utils/StartEndDateValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/brand/BrandsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/brand/BrandsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/mainActivity/MainActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/mainActivity/MainActivityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/AddReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/controllers/reservation/AddReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/BrandQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/BrandQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/ReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/models/ReservationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CarQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CarQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CustomerQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/CustomerQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/ReservationQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/queries/ReservationQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/BrandRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/BrandRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/CarRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/CustomerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/ReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CarRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CarRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/BrandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/team/rentwheels/services/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Brand/brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Brand/brands.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/brand/BrandsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/brand/BrandsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/mainActivity/MainActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/mainActivity/MainActivityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/Brand/brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/Brand/brands.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/addReservation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/team/rentwheels/fxml/Reservation/addReservation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/reservation/AddReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/controllers/reservation/AddReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/Reservation/addReservation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/fxml/Reservation/addReservation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/BrandQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/BrandQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/ReservationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/models/ReservationDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/CarQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/CarQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/CustomerQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/CustomerQuery.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/ReservationQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/queries/ReservationQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/BrandRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/BrandRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/CarRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/CarRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/CustomerRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/ReservationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/ReservationRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/BrandRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/CarRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/CarRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/CustomerRepositoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/repositories/implementations/ReservationRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BrandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/BrandService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/CarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/CarService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/CustomerService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/team/rentwheels/services/ReservationService.class" afterDir="false" />
     </list>
@@ -109,7 +111,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
@@ -145,6 +147,9 @@
       <recent name="org.team.rentwheels.services" />
       <recent name="org.team.rentwheels.repositories.implementations" />
       <recent name="org.team.rentwheels.repositories" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.team.rentwheels.utils" />
     </key>
   </component>
   <component name="RunManager" selected="Application.RentWheels">
@@ -457,7 +462,14 @@
       <workItem from="1702114073958" duration="3479000" />
       <workItem from="1702125857820" duration="4618000" />
       <workItem from="1702132422585" duration="1615000" />
-      <workItem from="1702135868664" duration="1218000" />
+      <workItem from="1702135868664" duration="5442000" />
+      <workItem from="1702152337945" duration="4307000" />
+      <workItem from="1702157115650" duration="1983000" />
+      <workItem from="1702159110826" duration="2705000" />
+      <workItem from="1702199565064" duration="1797000" />
+      <workItem from="1702202315217" duration="2064000" />
+      <workItem from="1702204521584" duration="2918000" />
+      <workItem from="1702212706423" duration="7316000" />
     </task>
     <servers />
   </component>

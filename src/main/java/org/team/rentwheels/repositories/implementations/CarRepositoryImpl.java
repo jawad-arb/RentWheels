@@ -1,5 +1,7 @@
 package org.team.rentwheels.repositories.implementations;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.repositories.CarRepository;
 import org.team.rentwheels.utils.DatabaseOperations;
@@ -95,6 +97,38 @@ public class CarRepositoryImpl implements CarRepository {
             carsList.add(car);
         }
         return carsList;
+    }
+
+    @Override
+    public ObservableList getAllAvailableCars() throws SQLException {
+        ObservableList carsList= FXCollections.observableArrayList();
+        PreparedStatement ps= dbOperations.setConnection(GET_ALL_AVAILABLE_CARS);
+        ResultSet rs=ps.executeQuery();
+        while (rs.next()){
+            Car car=new Car();
+            car.setCarId(rs.getInt("car_id"));
+            car.setBrandId(rs.getInt("brand_id"));
+            car.setModel(rs.getString("model"));
+            car.setPrice(rs.getDouble("price"));
+            car.setAvailable(rs.getBoolean("availability"));
+            car.setMaintenance_status(rs.getString("maintenance_status"));
+            car.setLast_maintenance_date(rs.getDate("last_maintenance_date"));
+            car.setCarInsuranceStartDate(rs.getDate("Insurance_start_date"));
+            car.setCarInsuranceEndDate(rs.getDate("Insurance_end_date"));
+            carsList.add(car);
+        }
+        return carsList;
+    }
+
+    @Override
+    public int carIdByModel(String model) throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(GET_CAR_ID_BY_MODEL);
+        ps.setString(1,model);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            return rs.getInt(1);
+        }
+        return 0;
     }
 
 }

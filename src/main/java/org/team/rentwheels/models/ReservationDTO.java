@@ -10,9 +10,11 @@ public class ReservationDTO {
     private Date startDate;
     private Date endDate;
     private Double totalCost;
+    private Double advancedPrice;
     private String status;
 
-    public ReservationDTO(int id, String carName, String customerName, Date reservationDate, Date startDate, Date endDate, Double totalCost, String status) {
+
+    public ReservationDTO(int id, String carName, String customerName, Date reservationDate, Date startDate, Date endDate, Double totalCost, Double advancedPrice, String status) {
         this.id = id;
         this.carName = carName;
         this.customerName = customerName;
@@ -20,16 +22,18 @@ public class ReservationDTO {
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalCost = totalCost;
+        this.advancedPrice = advancedPrice;
         this.status = status;
     }
 
-    public ReservationDTO(String carName, String customerName, Date reservationDate, Date startDate, Date endDate, Double totalCost, String status) {
+    public ReservationDTO(String carName, String customerName, Date reservationDate, Date startDate, Date endDate, Double totalCost, Double advancedPrice, String status) {
         this.carName = carName;
         this.customerName = customerName;
         this.reservationDate = reservationDate;
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalCost = totalCost;
+        this.advancedPrice = advancedPrice;
         this.status = status;
     }
 

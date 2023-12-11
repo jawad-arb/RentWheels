@@ -1,5 +1,6 @@
 package org.team.rentwheels.repositories;
 
+import javafx.collections.ObservableList;
 import org.team.rentwheels.models.Customer;
 
 import java.sql.SQLException;
@@ -18,5 +19,7 @@ public interface CustomerRepository {
     List<Customer> getAllCustomers() throws SQLException;
     public boolean doesCustomerExists(String email) throws SQLException;
     public boolean customerExists(int id) throws SQLException;
+    public  int customerIdByName(String firstName,String lastName) throws SQLException;
+    public ObservableList getAllAvailableCustomers() throws SQLException ;
 
 }

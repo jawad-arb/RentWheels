@@ -1,5 +1,6 @@
 package org.team.rentwheels.services;
 
+import javafx.collections.ObservableList;
 import org.team.rentwheels.exceptions.CustomerAlreadyExistsException;
 import org.team.rentwheels.exceptions.CustomerNotExistsException;
 import org.team.rentwheels.models.Customer;
@@ -63,5 +64,13 @@ public class CustomerService {
     public boolean customerExists(int id) throws SQLException {
         return this.customerRepository.customerExists(id);
     }
+
+    public ObservableList getAllAvailableCustomers() throws SQLException {
+        return this.customerRepository.getAllAvailableCustomers();
+    }
+    public int customerIdByName(String firstName, String lastName) throws SQLException {
+        return customerRepository.customerIdByName(firstName,lastName);
+    }
+
 
     }

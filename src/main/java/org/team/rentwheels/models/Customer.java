@@ -11,6 +11,9 @@ public class Customer {
     public Customer(){
 
     }
+    public Customer(int id){
+        this.id=id;
+    }
     public Customer(int id,
                     String firstName,
                     String lastName,

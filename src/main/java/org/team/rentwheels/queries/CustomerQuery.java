@@ -9,4 +9,5 @@ public class CustomerQuery {
     public static final String GET_ALL_CUSTOMERS = "SELECT  * FROM Customers";
     public static final String DOES_CUSTOMER_EXISTS = "SELECT COUNT(*) FROM Customers WHERE email=? ";
     public static final String CUSTOMER_EXISTS_BY_ID = "SELECT COUNT(*) FROM Customers WHERE customer_id=?";
+    public static final String CUSTOMER_ID_BY_NAME = "SELECT customer_id FROM Customers WHERE first_name=? and last_name=?";
 }

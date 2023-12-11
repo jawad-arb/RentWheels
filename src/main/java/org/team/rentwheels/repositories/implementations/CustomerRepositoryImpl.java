@@ -1,5 +1,7 @@
 package org.team.rentwheels.repositories.implementations;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.team.rentwheels.models.Customer;
 import org.team.rentwheels.repositories.CustomerRepository;
 import org.team.rentwheels.utils.DatabaseOperations;
@@ -112,6 +114,36 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             return count > 0;
         }
         return false;
+    }
+
+    @Override
+    public int customerIdByName(String firstName, String lastName) throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(CUSTOMER_ID_BY_NAME);
+        ps.setString(1,firstName);
+        ps.setString(2,lastName);
+        ResultSet rs=ps.executeQuery();
+        if(rs.next()){
+            return rs.getInt(1);
+        }
+        return 0;
+    }
+
+    @Override
+    public ObservableList getAllAvailableCustomers() throws SQLException {
+        ObservableList customersList= FXCollections.observableArrayList();
+        PreparedStatement ps=dbOperations.setConnection(GET_ALL_CUSTOMERS);
+        ResultSet rs=ps.executeQuery();
+        while(rs.next()){
+            Customer customer=new Customer();
+            customer.setId(rs.getInt("customer_id"));
+            customer.setFirstName(rs.getString("first_name"));
+            customer.setLastName(rs.getString("last_name"));
+            customer.setEmail(rs.getString("email"));
+            customer.setPhone(rs.getString("phone"));
+            customer.setAddress(rs.getString("address"));
+            customersList.add(customer);
+        }
+        return customersList;
     }
 
 

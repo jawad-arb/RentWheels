@@ -1,10 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.reservation.AddReservationController">
    <children>
-      <Text layoutX="278.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEst" />
+      <Text layoutX="312.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Reservation" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <Pane layoutX="33.0" layoutY="58.0" prefHeight="470.0" prefWidth="748.0">
+         <children>
+            <Text layoutX="35.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Model" wrappingWidth="80.75225830078125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="394.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" wrappingWidth="80.75225830078125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="35.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation Date" wrappingWidth="136.75225830078125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="38.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation Start Date" wrappingWidth="130.352294921875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="394.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation End Date" wrappingWidth="92.75225830078125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="38.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advanced Price" wrappingWidth="130.35229492187494">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="carModelCombo" layoutX="182.0" layoutY="38.0" onAction="#carAction" prefHeight="24.0" prefWidth="170.0" promptText="Car model" />
+            <ComboBox fx:id="customerCombo" layoutX="515.0" layoutY="39.0" onAction="#customerAction" prefHeight="24.0" prefWidth="170.0" promptText="customer" />
+            <DatePicker fx:id="reservationDatePicker" layoutX="182.0" layoutY="115.0" onAction="#reservationDateEvent" prefHeight="30.0" prefWidth="214.0" promptText="Reservation Date" />
+            <DatePicker fx:id="startDatePicker" layoutX="182.0" layoutY="201.0" onAction="#reservationStartDateEvent" prefHeight="30.0" prefWidth="170.0" promptText="start date" />
+            <DatePicker fx:id="endDatePicker" layoutX="515.0" layoutY="201.0" onAction="#reservationEndDateEvent" prefHeight="30.0" prefWidth="170.0" promptText="end date" />
+            <Text fx:id="totalCostField" layoutX="620.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="80.75225830078125">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <JFXButton fx:id="saveBtn" layoutX="247.0" layoutY="401.0" onAction="#saveAction" prefHeight="38.0" prefWidth="81.0" ripplerFill="#ffa808" style="-fx-background-color: #ffba85;" text="save">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="cancelBtn" layoutX="398.0" layoutY="401.0" prefHeight="38.0" prefWidth="81.0" ripplerFill="#5e6277" style="-fx-background-color: #878ca7;" text="cancel">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Text layoutX="490.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Cost :" wrappingWidth="130.35229492187494">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="advancedPriceTF" layoutX="182.0" layoutY="296.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

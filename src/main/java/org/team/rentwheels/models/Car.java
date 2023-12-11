@@ -33,6 +33,9 @@ public class Car {
 
     public Car() {
     }
+    public Car(int id) {
+        this.carId=id;
+    }
 
     public Car(int brandId,
                String model,

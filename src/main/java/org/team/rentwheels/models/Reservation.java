@@ -10,6 +10,7 @@ public class Reservation {
     private Date startDate;
     private Date endDate;
     private Double totalCost;
+    private Double advancedPrice;
     private String status;
 
     public Reservation() {
@@ -22,6 +23,7 @@ public class Reservation {
                        Date startDate,
                        Date endDate,
                        Double totalCost,
+                       Double advancedPrice,
                        String status) {
         this.id = id;
         this.car = car;
@@ -30,6 +32,7 @@ public class Reservation {
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalCost = totalCost;
+        this.advancedPrice = advancedPrice;
         this.status = status;
     }
 
@@ -39,6 +42,7 @@ public class Reservation {
                        Date startDate,
                        Date endDate,
                        Double totalCost,
+                       Double advancedPrice,
                        String status) {
         this.car = car;
         this.customer = customer;
@@ -46,6 +50,7 @@ public class Reservation {
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalCost = totalCost;
+        this.advancedPrice = advancedPrice;
         this.status = status;
     }
 
@@ -111,5 +116,13 @@ public class Reservation {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Double getAdvancedPrice() {
+        return advancedPrice;
+    }
+
+    public void setAdvancedPrice(Double advancedPrice) {
+        this.advancedPrice = advancedPrice;
     }
 }
