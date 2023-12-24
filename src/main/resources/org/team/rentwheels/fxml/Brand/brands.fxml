@@ -1,61 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="627.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.brand.BrandsController">
-    <children>
-        <TextField fx:id="searchBar" layoutX="14.0" layoutY="19.0" prefHeight="40.0" prefWidth="350.0" promptText="Search" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="35.0">
-            <padding>
-                <Insets left="33.0" />
-            </padding>
-        </TextField>
-        <TableView fx:id="tableView" fixedCellSize="0.0" layoutY="78.0" prefHeight="627.0" prefWidth="900.0" stylesheets="@../../css/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
-            <columns>
-                <TableColumn fx:id="clId" prefWidth="129.0" text="id" />
-                <TableColumn fx:id="clName" prefWidth="105.0" text="Brand Name" />
-                <TableColumn fx:id="clCountry" prefWidth="220.0" text="country of origin" />
-                <TableColumn fx:id="clFoundationYear" prefWidth="147.0" text="foundation year" />
-                <TableColumn fx:id="clImage" prefWidth="296.7999267578125" text="image" />
-            </columns>
-        </TableView>
-        <ImageView fx:id="add_brand" fitHeight="28.0" fitWidth="28.0" layoutX="499.0" layoutY="25.0" onMouseClicked="#addEvent" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="45.0">
-            <image>
-                <Image url="@../../assets/img/ajouter.png" />
-            </image>
-        </ImageView>
-        <ImageView fx:id="update_brand" fitHeight="28.0" fitWidth="28.0" layoutX="533.0" layoutY="25.0" onMouseClicked="#updateEvent" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="45.0">
-            <image>
-                <Image url="@../../assets/img/mise-a-jour-du-systeme.png" />
-            </image>
-        </ImageView>
-        <ImageView fx:id="delete_brand" fitHeight="28.0" fitWidth="28.0" layoutX="565.0" layoutY="25.0" onMouseClicked="#deleteEvent" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="45.0">
-            <image>
-                <Image url="@../../assets/img/supprimer.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="23.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="45.0">
-            <image>
-                <Image url="@../../assets/img/search.png" />
-            </image>
-        </ImageView>
-      <VBox fx:id="refrech_VB" alignment="CENTER" layoutX="391.0" layoutY="31.0" onMouseClicked="#refrechEvent">
-         <children>
-            <ImageView fx:id="add_brand1" fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/img/rafraichir.png" />
-               </image>
-            </ImageView>
-            <Label text="Refrech" textAlignment="CENTER" />
-         </children>
-      </VBox>
-    </children>
+   <children>
+      <Text layoutX="391.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brands" />
+   </children>
 
 </AnchorPane>

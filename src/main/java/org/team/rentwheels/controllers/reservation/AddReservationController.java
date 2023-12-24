@@ -1,17 +1,21 @@
 package org.team.rentwheels.controllers.reservation;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.team.rentwheels.controllers.statistics.StatisticsController;
 import org.team.rentwheels.exceptions.*;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.models.Customer;
 import org.team.rentwheels.models.Reservation;
+import org.team.rentwheels.models.ReservationDTO;
 import org.team.rentwheels.services.CarService;
 import org.team.rentwheels.services.CustomerService;
 import org.team.rentwheels.services.ReservationService;
@@ -24,15 +28,18 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddReservationController implements Initializable {
     private final ReservationService reservationService;
     private final CarService carService ;
     private final CustomerService customerService ;
+    private final ReservationsController reservationsController;
     private int customerId;
     private int carId;
-
+    @FXML
+    private Text totalCostField;
     @FXML
     private TextField advancedPriceTF;
     @FXML
@@ -49,15 +56,15 @@ public class AddReservationController implements Initializable {
     @FXML
     private DatePicker startDatePicker;
 
-    @FXML
-    private Text totalCostField;
 
-    public AddReservationController(ReservationService reservationService, CarService carService, CustomerService customerService) throws SQLException {
+    public AddReservationController(ReservationService reservationService, CarService carService, CustomerService customerService, ReservationsController reservationsController) throws SQLException {
         this.reservationService = reservationService;
         this.carService = carService;
         this.customerService = customerService;
+        this.reservationsController = reservationsController;
     }
     public AddReservationController() throws SQLException {
+        this.reservationsController = new ReservationsController();
         this.reservationService = new ReservationService();
         this.customerService = new CustomerService();
         this.carService = new CarService();
@@ -107,6 +114,16 @@ public class AddReservationController implements Initializable {
     Date reservationDate ;
     Date startDate;
     Date endDate;
+    double advPrice=0.0;
+    @FXML
+    private Button cancel;
+    @FXML
+    private Button saveBtn;
+    @FXML
+    void cancelAction(ActionEvent event) {
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.close();
+    }
 
     /**
      * @Info Get the CustomerId
@@ -160,6 +177,16 @@ public class AddReservationController implements Initializable {
         startDate = java.sql.Date.valueOf(getReservationStartDate);
     }
 
+    /**
+     *
+     * @param event
+     * @throws CarNotAvailableException
+     * @throws SQLException
+     * @throws CustomerInBlackListException
+     * @throws NoCarSelectedException
+     * @throws NoFieldSelectedException
+     * @Condition : check if the Advanced Price > 500 DH
+     */
 
     @FXML
     void saveAction(ActionEvent event) throws CarNotAvailableException, SQLException, CustomerInBlackListException, NoCarSelectedException, NoFieldSelectedException {
@@ -170,10 +197,15 @@ public class AddReservationController implements Initializable {
             if (advancedPriceTF.getText().isEmpty() || carModelCombo.getSelectionModel().getSelectedItem() == null || customerCombo.getSelectionModel().getSelectedItem() == null ) {
                 throw new NoFieldSelectedException("Please select all required fields.");
             }
-            double advPrice = Double.parseDouble(advancedPriceTF.getText());
-            Reservation reservation = new Reservation(new Car(carId), new Customer(customerId), reservationDate, startDate, endDate, 100.0, advPrice, "Confirmed");
+            advPrice = Double.parseDouble(advancedPriceTF.getText());
+            if(advPrice < 500){
+                throw new AdvancedPricBandException("Please enter an advanced Price sup that 500 DH !");
+            }
+            Reservation reservation = new Reservation(new Car(carId), new Customer(customerId), reservationDate, startDate, endDate, calculateTotalCost(new Car(carId),startDate,endDate,advPrice), advPrice, "Confirmed");
             reservationService.addReservation(reservation);
             succesAlert();
+            Stage stage = (Stage) saveBtn.getScene().getWindow();
+            stage.close();
             }catch (NumberFormatException e) {
                 e.printStackTrace();
             }catch (CustomerInBlackListException e) {
@@ -192,10 +224,26 @@ public class AddReservationController implements Initializable {
                 alert.setTitle("Missing Information");
                 alert.setContentText(e.getMessage());
                 alert.showAndWait();
-            }
+            } catch (AdvancedPricBandException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Advenced Price");
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+        }
+        catch (InsuranceCarException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Insurance Warning");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
     }
 
-
+    @FXML
+    void totalCostEvent(MouseEvent event) throws SQLException {
+        advPrice = Double.parseDouble(advancedPriceTF.getText());
+        totalCostField.setText(String.valueOf(calculateTotalCost(new Car(carId),startDate,endDate,advPrice)));
+        totalCostField.setStyle("-fx-background-color: red;");
+    }
 
     void succesAlert(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -209,7 +257,11 @@ public class AddReservationController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
-
-
+    public Double calculateTotalCost(Car car, Date startDate, Date endDate, double advancedPrice) throws SQLException {
+        Double cost=carService.getCostByCarId(car.getCarId());
+        int NbrDays=reservationService.calculateNumberOfDays(startDate,endDate);
+        return (cost*NbrDays)-advancedPrice;
+    }
+ 
 
 }

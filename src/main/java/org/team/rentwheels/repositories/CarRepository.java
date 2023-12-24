@@ -13,5 +13,6 @@ public interface CarRepository {
     List<Car> getAllCars() throws SQLException;
     public ObservableList getAllAvailableCars() throws SQLException ;
     int carIdByModel(String model) throws SQLException;
+    Double getCostByCarId(int carId) throws SQLException;
 
 }

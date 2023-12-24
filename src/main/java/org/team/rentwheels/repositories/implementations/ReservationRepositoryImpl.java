@@ -169,9 +169,11 @@ public class ReservationRepositoryImpl implements ReservationRepository {
             ReservationDTO reservationDTO=new ReservationDTO();
             reservationDTO.setCarName(rs.getString(1));
             reservationDTO.setCustomerName(rs.getString(2));
-            reservationDTO.setReservationDate(rs.getDate(3));
-            reservationDTO.setStartDate(rs.getDate(4));
-            reservationDTO.setEndDate(rs.getDate(5));
+            reservationDTO.setId(rs.getInt(3));
+            reservationDTO.setReservationDate(rs.getDate(4));
+            reservationDTO.setStartDate(rs.getDate(5));
+            reservationDTO.setEndDate(rs.getDate(6));
+            reservationDTO.setAdvancedPrice(rs.getDouble(7));
             reservationDTOS.add(reservationDTO);
         }
         return reservationDTOS;
@@ -179,7 +181,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     public void updateCarAvailability(int carId, Date startDate, Date endDate, boolean available) throws SQLException {
         java.util.Date systemDate =  java.util.Date.from(Instant.now());
-        java.sql.Date sqlSystemDate = new java.sql.Date(systemDate.getTime());
+        Date sqlSystemDate = new Date(systemDate.getTime());
         if (sqlSystemDate.after(startDate)) {
             available = false; // Set availability to false if date is past
         }
@@ -199,10 +201,10 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
             // Check for existing reservations
             checkExistingReservationsStatement.setInt(1, carId);
-            checkExistingReservationsStatement.setDate(2, new java.sql.Date(startDate.getTime()));
-            checkExistingReservationsStatement.setDate(3, new java.sql.Date(endDate.getTime()));
-            checkExistingReservationsStatement.setDate(4, new java.sql.Date(startDate.getTime()));
-            checkExistingReservationsStatement.setDate(5, new java.sql.Date(endDate.getTime()));
+            checkExistingReservationsStatement.setDate(2, new Date(startDate.getTime()));
+            checkExistingReservationsStatement.setDate(3, new Date(endDate.getTime()));
+            checkExistingReservationsStatement.setDate(4, new Date(startDate.getTime()));
+            checkExistingReservationsStatement.setDate(5, new Date(endDate.getTime()));
 
             ResultSet resultSet = checkExistingReservationsStatement.executeQuery();
             if (resultSet.next() && resultSet.getInt(1) > 0) {
@@ -231,4 +233,57 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         }
         return totalCost;
     }
+
+    @Override
+    public int getCarIdByReservation(int reservationId) throws SQLException {
+        int carId = 0;
+        PreparedStatement ps=dbOperations.setConnection(GET_CAR_ID_BY_RESERVATION);
+        ps.setInt(1,reservationId);
+        ResultSet rs=ps.executeQuery();
+        if(rs.next()){
+            carId=rs.getInt(1);
+        }
+        return carId;
+    }
+
+    @Override
+    public int getCustomerByReservation(int reservationId) throws SQLException {
+        int customerId = 0;
+        PreparedStatement ps=dbOperations.setConnection(GET_CUSTOMER_ID_BY_RESERVATION);
+        ps.setInt(1,reservationId);
+        ResultSet rs=ps.executeQuery();
+        if(rs.next()){
+            customerId=rs.getInt(1);
+        }
+        return customerId;
+    }
+
+    @Override
+    public List<ReservationDTO> getAllPendingReservation() throws SQLException {
+        List<ReservationDTO> reservationDTOS=new ArrayList<>();
+        PreparedStatement ps=dbOperations.setConnection(GET_ALL_RESERVATION_FOR_TABLE_VIEW);
+        ps.setString(1,"Pending");
+        ResultSet rs=ps.executeQuery();
+        while (rs.next()){
+            ReservationDTO reservationDTO=new ReservationDTO();
+            reservationDTO.setCarName(rs.getString(1));
+            reservationDTO.setCustomerName(rs.getString(2));
+            reservationDTO.setId(rs.getInt(3));
+            reservationDTO.setReservationDate(rs.getDate(4));
+            reservationDTO.setStartDate(rs.getDate(5));
+            reservationDTO.setEndDate(rs.getDate(6));
+            reservationDTO.setAdvancedPrice(rs.getDouble(7));
+            reservationDTOS.add(reservationDTO);
+        }
+        return reservationDTOS;
+    }
+
+    @Override
+    public void updateReservationStatus(int id, String status) throws SQLException {
+        PreparedStatement ps=dbOperations.setConnection(UPDATE_RESERVATION_STATUS);
+        ps.setString(1,status);
+        ps.setInt(2,id);
+        ps.executeUpdate();
+    }
+
 }

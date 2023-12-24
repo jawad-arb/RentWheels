@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="878.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.dashboard.DashBoard">
+<AnchorPane prefHeight="500.0" prefWidth="878.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.dashboard.DashBoardController">
    <children>
-      <Text layoutX="242.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="373.5295715332031" />
+      <Text layoutX="46.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="212.72950744628906">
+         <font>
+            <Font name="Droid Sans Fallback" size="19.0" />
+         </font>
+      </Text>
+      <Separator layoutX="36.0" layoutY="53.0" prefHeight="2.0" prefWidth="806.0" />
+      <Pane layoutX="36.0" layoutY="77.0" prefHeight="74.0" prefWidth="162.0" style="-fx-background-color: #fcdec2; -fx-background-radius: 13;" />
+      <Pane layoutX="240.0" layoutY="77.0" prefHeight="74.0" prefWidth="162.0" style="-fx-background-color: #fcdec2; -fx-background-radius: 13;" />
+      <Pane layoutX="447.0" layoutY="77.0" prefHeight="74.0" prefWidth="162.0" style="-fx-background-color: #fcdec2; -fx-background-radius: 13;" />
+      <Pane layoutX="658.0" layoutY="77.0" prefHeight="74.0" prefWidth="162.0" style="-fx-background-color: #fcdec2; -fx-background-radius: 13;" />
+      <Pane layoutX="36.0" layoutY="179.0" prefHeight="300.0" prefWidth="336.0" style="-fx-background-color: #F5F7F8; -fx-background-radius: 13;">
+         <children>
+            <Text layoutX="9.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="       where innovation meets convenience in the world of car rentals. Our application is designed to address the challenges faced by modern consumers seeking affordable,diverse, and hassle-free car rental experiences. With an intuitive and user-friendly interface, rentWheels puts the power of choice in your hands. Browse through our extensive inventory of vehicles, ranging from sleek sedans to rugged SUVs, all at your fingertips.Real-time booking and availability ensure that your desired vehicle is just a click away, and our secure payment gateways make the transaction process seamless and worry-free. Experience the future of car rentals with rentWheels, where every journey begins with simplicity and ends with satisfaction." wrappingWidth="315.20001220703125" />
+            <Text layoutX="9.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to RentWheels">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="449.0" layoutY="179.0" prefHeight="300.0" prefWidth="374.0" style="-fx-background-color: #F5F7F8; -fx-background-radius: 13;" />
    </children>
 </AnchorPane>

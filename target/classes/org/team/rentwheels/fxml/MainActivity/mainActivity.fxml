@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1150.0" style="-fx-background-color: #F5F7F8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.mainActivity.MainActivityController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1150.0" style="-fx-background-color: #F5F7F8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.mainActivity.MainActivityController">
    <left>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="232.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -33,7 +27,7 @@
             </Pane>
             <Pane prefHeight="618.0" prefWidth="232.0">
                <children>
-                  <JFXButton fx:id="dashboardBtn" layoutX="16.0" layoutY="23.0" onAction="#dashBoardAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba8592" style="-fx-background-color: #FFEBDB; -fx-background-radius: 15;" text="  Dashboard" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="dashboardBtn" layoutX="16.0" layoutY="23.0" onAction="#dashBoardAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba8591" style="-fx-background-color: #FFEBDB; -fx-background-radius: 15;" text="  Dashboard" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -98,7 +92,7 @@
                         <Image url="@../../assets/img/booking.png" />
                      </image>
                   </ImageView>
-                  <JFXButton fx:id="blackListBtn" layoutX="16.0" layoutY="281.0" onAction="#blackListAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Black List" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="blackListBtn" layoutX="16.0" layoutY="283.0" onAction="#blackListAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Black List" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -106,12 +100,12 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/img/list.png" />
                      </image>
                   </ImageView>
-                  <JFXButton fx:id="statBtn" layoutX="16.0" layoutY="335.0" onAction="#statAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Statistics" textAlignment="CENTER" textFill="#151515">
+                  <JFXButton fx:id="statBtn" layoutX="16.0" layoutY="388.0" onAction="#statAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text=" Statistics" textAlignment="CENTER" textFill="#151515">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -119,7 +113,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="39.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="38.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/img/trend.png" />
                      </image>
@@ -135,6 +129,19 @@
                   <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="51.0" layoutY="476.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/img/logout.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton fx:id="requestsBtn1" layoutX="16.0" layoutY="336.0" onAction="#requestAct" prefHeight="44.0" prefWidth="200.0" ripplerFill="#ffba83" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="Requests" textAlignment="CENTER" textFill="#151515">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="39.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/img/user-interface.png" />
                      </image>
                   </ImageView>
                </children>

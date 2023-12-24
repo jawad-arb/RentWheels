@@ -47,7 +47,7 @@
          <children>
             <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/img/refresh%20(1).png" />
+                  <Image url="@../../assets/img/refresh (1).png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

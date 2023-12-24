@@ -111,6 +111,14 @@ public class MainActivityController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    void requestAct(ActionEvent event) throws IOException {
+        try {
+            load("Requests/requests.fxml");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -135,6 +143,7 @@ public class MainActivityController implements Initializable {
     void BrandEvent(MouseEvent event) throws IOException {
         StageManager.replace("fxml/Brand/brands.fxml",true,width,height);
     }
+
 
     private void load(String file) throws IOException {
         Parent fxml = FXMLLoader.load(RentWheels.class.getResource(fxmlURL + file));

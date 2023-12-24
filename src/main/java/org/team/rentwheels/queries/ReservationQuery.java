@@ -10,6 +10,9 @@ public class ReservationQuery {
     public static final String ADD_RESERVATION_QUEY = "insert into Reservations(car_id,customer_id,reservation_date,start_date,end_date,total_cost,status,advanced_price)VALUES (?,?,?,?,?,?,?,?)";
     public static final String DELETE_RESERVATION_BY_ID="DELETE FROM Reservations WHERE reservation_id=?";
     public static final String UPDATE_RESERVATION="UPDATE Reservations SET car_id=?,customer_id=?,reservation_date=?,start_date=?,end_date=?,total_cost=?,status=?,advanced_price=? WHERE reservation_id=?";
-    public static final String GET_ALL_RESERVATION_FOR_TABLE_VIEW = "SELECT c.model, CONCAT(cm.first_name, ' ', cm.last_name) AS customer_name, r.reservation_date, r.start_date, r.end_date FROM Reservations r INNER JOIN Cars c ON c.car_id = r.car_id INNER JOIN Customers cm ON r.customer_id = cm.customer_id WHERE r.status = ?";
+    public static final String UPDATE_RESERVATION_STATUS="UPDATE Reservations SET status=? WHERE reservation_id=?";
 
+    public static final String GET_ALL_RESERVATION_FOR_TABLE_VIEW = "SELECT c.model, CONCAT(cm.first_name, ' ', cm.last_name) AS customer_name,r.reservation_id, r.reservation_date, r.start_date, r.end_date , r.advanced_price FROM Reservations r INNER JOIN Cars c ON c.car_id = r.car_id INNER JOIN Customers cm ON r.customer_id = cm.customer_id WHERE r.status = ?";
+    public static final String GET_CAR_ID_BY_RESERVATION = "SELECT car_id from Reservations Where reservation_id=?";
+    public static String GET_CUSTOMER_ID_BY_RESERVATION="SELECT customer_id from Reservations Where reservation_id=?";
 }

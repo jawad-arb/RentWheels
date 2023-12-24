@@ -131,4 +131,16 @@ public class CarRepositoryImpl implements CarRepository {
         return 0;
     }
 
+    @Override
+    public Double getCostByCarId(int carId) throws SQLException {
+        double cost = 0;
+        PreparedStatement ps=dbOperations.setConnection(GET_COST_BY_CAR_ID);
+        ps.setInt(1,carId);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            cost=rs.getDouble(1);
+        }
+        return cost;
+    }
+
 }

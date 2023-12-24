@@ -2,6 +2,7 @@ package org.team.rentwheels.services;
 
 import org.team.rentwheels.exceptions.CarNotAvailableException;
 import org.team.rentwheels.exceptions.CustomerInBlackListException;
+import org.team.rentwheels.exceptions.InsuranceCarException;
 import org.team.rentwheels.exceptions.ReservationNotFoundException;
 import org.team.rentwheels.models.Car;
 import org.team.rentwheels.models.Reservation;
@@ -33,7 +34,10 @@ public class ReservationService {
      * @throws SQLException
      */
 
-    public void addReservation(Reservation reservation) throws SQLException, CarNotAvailableException, CustomerInBlackListException {
+    public void addReservation(Reservation reservation) throws SQLException,
+                                                        CarNotAvailableException,
+                                                        CustomerInBlackListException,
+                                                        InsuranceCarException {
         if(!isCarAvailableForReservation(reservation.getCar().getCarId(),reservation.getStartDate(),reservation.getEndDate()))
             throw new CarNotAvailableException("Car is not available for the requested period");
         if (isCustomerExistsInTheBlackList(reservation.getCustomer().getId()))
@@ -42,7 +46,6 @@ public class ReservationService {
             double discountedCost = applyPromotion(reservation, discount);
             reservation.setTotalCost(discountedCost);
         }
-        // update availability to false for the car
         updateCarAvailability(reservation.getCar().getCarId(), reservation.getStartDate(), reservation.getEndDate(), false);
         reservationRepository.addReservation(reservation);
     }
@@ -76,7 +79,7 @@ public class ReservationService {
      */
     public boolean isCarAvailableForReservation(int carId,
                                                 Date startDate,
-                                                Date endDate) throws SQLException{
+                                                Date endDate) throws SQLException, InsuranceCarException {
         CarService carService=new CarService();
         List<Reservation> reservationsForCar=getAllReservationByCarId(carId);
         for (Reservation reservation:reservationsForCar){
@@ -91,7 +94,7 @@ public class ReservationService {
          * @if endDate for reservation comes after endDate For car insurance
          */
         if (startDate.after(carInsuranceEndDate)) {
-            return false;
+            throw new InsuranceCarException("Car Insurance is Expired");
         }
         return true;
     }
@@ -126,6 +129,12 @@ public class ReservationService {
         int numberOfDays = (int) (difference / (1000 * 60 * 60 * 24)) + 1;
         return numberOfDays;
     }
+    public int calculateNumberOfDays(Date startDate,Date endDate) {
+        long difference = endDate.getTime() - startDate.getTime();
+        int numberOfDays = (int) (difference / (1000 * 60 * 60 * 24)) + 1;
+        return numberOfDays;
+    }
+
 
     /**
      *
@@ -155,6 +164,9 @@ public class ReservationService {
     public List<ReservationDTO> getAllConfirmedReservation() throws SQLException {
         return reservationRepository.getAllConfirmedReservation();
     }
+    public List<ReservationDTO> getAllPendingReservation() throws SQLException {
+        return reservationRepository.getAllPendingReservation();
+    }
     public double calculateTotaleCost(Reservation reservation) throws SQLException {
         return reservationRepository.calculateTotaleCost(reservation);
     }
@@ -164,7 +176,15 @@ public class ReservationService {
     public void updateCarAvailability(int carId, Date startDate, Date endDate, boolean available) throws SQLException {
         reservationRepository.updateCarAvailability(carId,startDate,endDate,available);
     }
-
-
-
+    public int getCarIdByReservation(int reservationId) throws SQLException {
+        return reservationRepository.getCarIdByReservation(reservationId);
     }
+
+
+    public int getCustomerByReservation(int id) throws SQLException {
+        return reservationRepository.getCustomerByReservation(id);
+    }
+    public void updateReservationStatus(int id,String status) throws SQLException {
+        reservationRepository.updateReservationStatus(id,status);
+    }
+}

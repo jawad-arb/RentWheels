@@ -1,17 +1,17 @@
 package org.team.rentwheels.controllers.reservation;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.team.rentwheels.RentWheels;
+import org.team.rentwheels.exceptions.CustomerNotExistsException;
 import org.team.rentwheels.models.Reservation;
 import org.team.rentwheels.models.ReservationDTO;
 import org.team.rentwheels.services.ReservationService;
@@ -25,6 +25,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReservationsController implements Initializable {
+    public TableView<ReservationDTO> getTableView() {
+        return tableView;
+    }
+
     @FXML
     public TableColumn<ReservationDTO, String> clCarName;
 
@@ -70,26 +74,44 @@ public class ReservationsController implements Initializable {
     }
 
     @FXML
-    void addReservationEvent(MouseEvent event) {
+    void addReservationEvent(MouseEvent event) throws SQLException {
         openAddBrandWindow();
     }
 
     @FXML
     void deleteReservationEvent(MouseEvent event) {
-
+        ReservationDTO selectedReservation=tableView.getSelectionModel().getSelectedItem();
+        if (selectedReservation==null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("WARNING");
+            alert.setHeaderText("You most select Reservation to Deleted !");
+            alert.setContentText(null);
+            alert.showAndWait();
+        }else {
+            boolean confirmed=showConfirmationDialog(selectedReservation);
+            if (confirmed){
+                try{
+                    reservationService.deleteReservation(selectedReservation.getId());
+                    tableView.getItems().remove(selectedReservation);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+        }
+        }
     }
 
     @FXML
-    void updateReservationEvent(MouseEvent event) {
-
+    void updateReservationEvent(MouseEvent event) throws SQLException {
+        openUpdateReservationWindow();
     }
 
 
     
-    private void loadReservationData() throws SQLException {
+    public void loadReservationData() throws SQLException {
         List<ReservationDTO> reservationList=reservationService.getAllConfirmedReservation();
         tableView.getItems().addAll(reservationList);
     }
+
 
     private void openAddBrandWindow() {
         FXMLLoader fxmlLoader=new FXMLLoader(RentWheels.class.getResource("fxml/Reservation/addReservation.fxml"));
@@ -102,6 +124,63 @@ public class ReservationsController implements Initializable {
             addReservationStage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    public void openUpdateReservationWindow(){
+        ReservationDTO reservationDTO=getSelectedReservation();
+        if (reservationDTO==null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("WARNING");
+            alert.setHeaderText("You most select Reservation to Updated !");
+            alert.setContentText(null);
+            alert.showAndWait();
+        }else{
+            FXMLLoader fxmlLoader = new FXMLLoader(RentWheels.class.getResource("fxml/Reservation/updateReservation.fxml"));
+            try {
+                Parent root = fxmlLoader.load();
+                UpdateReservationController updateReservationController = fxmlLoader.getController();
+                updateReservationController.initData(reservationService, this, reservationDTO);
+
+                Stage updateBrandStage = new Stage();
+                Scene scene = new Scene(root);
+                updateBrandStage.setScene(scene);
+                updateBrandStage.setTitle("Update Reservations");
+                updateBrandStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (CustomerNotExistsException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private boolean showConfirmationDialog(ReservationDTO reservationDTO) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Deletion");
+        alert.setHeaderText("Deleting Reservaation : ");
+        alert.setContentText("Are you sure you want to delete this Reservation ?");
+        ButtonType buttonTypeYes = new ButtonType("Yes");
+        ButtonType buttonTypeNo = new ButtonType("No");
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        boolean[] result = {false};
+        alert.showAndWait().ifPresent(buttonType -> {
+            if (buttonType == buttonTypeYes) {
+                result[0] = true;
+            } else {
+                result[0] = false;
+            }
+        });
+
+        return result[0];
+    }
+
+    public ReservationDTO getSelectedReservation() {
+        if (tableView != null && tableView.getSelectionModel().getSelectedItem() != null) {
+            return tableView.getSelectionModel().getSelectedItem();
+        } else {
+            return null;
         }
     }
 }

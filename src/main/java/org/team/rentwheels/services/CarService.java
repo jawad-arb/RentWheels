@@ -12,7 +12,7 @@ public class CarService {
     private final CarRepository carRepository;
 
     public CarService() {
-        this.carRepository=new CarRepositoryImpl();
+        this.carRepository = new CarRepositoryImpl();
     }
 
     public CarService(CarRepository carRepository) {
@@ -22,18 +22,23 @@ public class CarService {
     public void addCar(Car addedCar) throws SQLException {
         this.carRepository.addCar(addedCar);
     }
+
     public void deleteCar(int carId) throws SQLException {
         this.carRepository.deleteCar(carId);
     }
-    public void updateCar(int carId,Car updatedCar) throws SQLException {
-        this.carRepository.updateCar(carId,updatedCar);
+
+    public void updateCar(int carId, Car updatedCar) throws SQLException {
+        this.carRepository.updateCar(carId, updatedCar);
     }
+
     public Car getCarById(int carId) throws SQLException {
         return this.carRepository.getCarById(carId);
     }
+
     public List<Car> getAllCars() throws SQLException {
         return this.carRepository.getAllCars();
     }
+
     public ObservableList getAllAvailableCars() throws SQLException {
         return this.carRepository.getAllAvailableCars();
     }
@@ -41,4 +46,9 @@ public class CarService {
     public int carIdByModel(String model) throws SQLException {
         return this.carRepository.carIdByModel(model);
     }
+
+    public Double getCostByCarId(int carId) throws SQLException {
+        return carRepository.getCostByCarId(carId);
+    }
+
 }

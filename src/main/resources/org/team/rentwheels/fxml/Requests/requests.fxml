@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team.rentwheels.controllers.requests.RequestsController">
+   <children>
+      <TableView fx:id="tableView" fixedCellSize="0.0" layoutY="69.0" prefHeight="428.0" prefWidth="878.0" stylesheets="@../../css/table.css">
+         <columns>
+            <TableColumn fx:id="clCarName" prefWidth="140.0" text="Car" />
+            <TableColumn fx:id="clCustomerName" prefWidth="140.0" text="Customer" />
+            <TableColumn fx:id="clDateReservation" prefWidth="200.0" text="Reservation Date" />
+            <TableColumn fx:id="clStartDate" prefWidth="200.0" text="Reservation Start Date" />
+            <TableColumn fx:id="clEndDate" prefWidth="200.0" text="Reservation End Date" />
+         </columns>
+      </TableView>
+      <Pane fx:id="acceptReservation" layoutX="740.0" layoutY="14.0" onMouseClicked="#acceptReservationEvent" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #4bae4f; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/accept.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane fx:id="refuseReservation" layoutX="795.0" layoutY="14.0" onMouseClicked="#removeReservationEvent" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #fa2135; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="60.0" layoutX="-2.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/reject.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Text layoutX="39.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requests" wrappingWidth="212.72950744628906">
+         <font>
+            <Font name="Droid Sans Fallback" size="19.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

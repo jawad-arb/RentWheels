@@ -9,7 +9,8 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CarRepositoryImplTest {
+class
+CarRepositoryImplTest {
     private CarRepository carRepository=new CarRepositoryImpl();
 
     @Test
@@ -38,5 +39,10 @@ class CarRepositoryImplTest {
 
     @Test
     void getAllCars() {
+    }
+
+    @Test
+    void getCostByCarId() throws SQLException {
+        assertEquals(100,carRepository.getCostByCarId(2));
     }
 }

@@ -13,6 +13,13 @@ public class ReservationDTO {
     private Double advancedPrice;
     private String status;
 
+    public Double getAdvancedPrice() {
+        return advancedPrice;
+    }
+
+    public void setAdvancedPrice(Double advancedPrice) {
+        this.advancedPrice = advancedPrice;
+    }
 
     public ReservationDTO(int id, String carName, String customerName, Date reservationDate, Date startDate, Date endDate, Double totalCost, Double advancedPrice, String status) {
         this.id = id;
